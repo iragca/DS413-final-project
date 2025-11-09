@@ -49,6 +49,11 @@ test:
 docs:
 	uv run mkdocs serve -f docs/mkdocs.yml -a localhost:7000
 
+## Download datasets
+.PHONY: data
+data:
+	uv run python lib/dataset.py
+
 
 ## Set up Python interpreter environment
 .PHONY: create_environment
