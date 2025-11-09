@@ -2,6 +2,24 @@
 
 Final Project for DS413
 
+## Setup
+
+We work with uv. You can install it [here](https://docs.astral.sh/uv/guides/install-python/)
+
+```bash
+make requirements   #  Install dependencies
+make data           #  Download datasets
+```
+
+# Development
+
+```bash
+make lint           #  Lint the code
+make format         #  Format the code
+make docs           #  Run a local mkdocs server for documentation
+make tests          #  Run unit tests
+```
+
 ## Project Organization
 
 ```
@@ -22,7 +40,7 @@ Final Project for DS413
 │                         the creator's initials, and a short `-` delimited description, e.g.
 │                         `1.0-jqp-initial-data-exploration`.
 │
-├── pyproject.toml     <- Project configuration file with package metadata for 
+├── pyproject.toml     <- Project configuration file with package metadata for
 │                         lib and configuration for tools like black
 │
 ├── references         <- Data dictionaries, manuals, and all other explanatory materials.
@@ -45,13 +63,12 @@ Final Project for DS413
     │
     ├── features.py             <- Code to create features for modeling
     │
-    ├── modeling                
-    │   ├── __init__.py 
-    │   ├── predict.py          <- Code to run model inference with trained models          
+    ├── modeling
+    │   ├── __init__.py
+    │   ├── predict.py          <- Code to run model inference with trained models
     │   └── train.py            <- Code to train models
     │
     └── plots.py                <- Code to create visualizations
 ```
 
---------
-
+---
