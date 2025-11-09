@@ -5,6 +5,49 @@ from typing import Any, Literal, Union
 
 
 class Storage(ABC):
+    """
+    Abstract base class defining a generic interface for persistent storage operations.
+
+    The `Storage` class provides a standardized foundation for saving, loading, and
+    managing data files in various storage backends (e.g., local filesystem, cloud
+    storage, or remote datasets). It defines abstract methods that must be implemented
+    by subclasses (`save` and `load`) and provides several utility methods for safe
+    file manipulation, validation, and path resolution.
+
+    Subclasses should implement the `save()` and `load()` methods to handle specific
+    storage mechanisms such as:
+      - Local disk storage
+      - Cloud APIs (e.g., Hugging Face Hub, AWS S3, GCP Storage)
+      - Databases or custom storage systems
+
+    The provided helper methods (`resolve_path`, `validate_file`, `validate_directory`,
+    and `copy_file_to_directory`) encapsulate common I/O operations to promote
+    consistency and reduce code duplication in subclass implementations.
+
+    Examples
+    --------
+    A subclass might implement file storage on the local filesystem:
+
+    >>> from pathlib import Path
+    >>> class LocalStorage(Storage):
+    ...     def save(self, source: Path, target_dir: Path):
+    ...         return self.copy_file_to_directory(source, target_dir, mode="copy")
+    ...
+    ...     def load(self, path: Path):
+    ...         return self.validate_file(path).read_text()
+
+    Attributes
+    ----------
+    None explicitly defined, but subclasses may define configuration attributes such as
+    authentication credentials, default directories, or caching behavior.
+
+    Notes
+    -----
+    - This class cannot be instantiated directly; it is meant to be subclassed.
+    - The static helper methods may be reused independently of subclass implementations.
+    - Designed to work with both relative and absolute paths via `pathlib.Path`.
+    """
+
     @abstractmethod
     def save(self, *args, **kwargs) -> None:
         pass

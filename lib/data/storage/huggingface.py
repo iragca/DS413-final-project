@@ -20,6 +20,55 @@ class HuggingFace(Storage):
         self.api = HfApi(token=token)
 
     def save(self, data: Union[DataFrame, Path, str], repo_id: str) -> bool:
+        """
+        Save data to a Hugging Face repository.
+
+        This method accepts either a Polars DataFrame or a file path (as a pathlib.Path or string)
+        and delegates the actual saving work to an appropriate helper:
+        - _save_dataframe for DataFrame objects
+        - _save_file for file path inputs
+
+        Parameters
+        ----------
+        data : polars.DataFrame | pathlib.Path | str
+            The data to save. If a Polars DataFrame is provided, it will be serialized
+            and uploaded via the DataFrame-saving routine. If a Path or string is
+            provided, it is treated as a filesystem path to a file that will be uploaded.
+        repo_id : str
+            The identifier of the Hugging Face repository (for example "username/repo")
+            where the data should be stored.
+
+        Returns
+        -------
+        bool
+            True if the save/upload operation completed successfully, False otherwise.
+            The exact semantics of success/failure are determined by the underlying
+            helper methods.
+
+        Raises
+        ------
+        ValueError
+            If `data` is not a Polars DataFrame, pathlib.Path, or string.
+        Exception
+            Any exceptions raised by the underlying helpers (_save_dataframe, _save_file)
+            or the Hugging Face client/library may propagate through; callers should
+            handle network and I/O related errors as appropriate.
+
+        Notes
+        -----
+        - This method is a thin dispatcher and does not perform content-specific
+          validation beyond type checking.
+        - Ensure authentication and network connectivity are configured for uploads
+          to the specified Hugging Face repository.
+
+        Example
+        -------
+        >>> # Save a DataFrame
+        >>> df = pl.DataFrame({"a": [1, 2, 3]})
+        >>> client.save(df, "myuser/myrepo")
+        >>> # Save a local file
+        >>> client.save("/path/to/file.csv", "myuser/myrepo")
+        """
         if isinstance(data, (Path, str)):
             return self._save_file(data, repo_id)
 
