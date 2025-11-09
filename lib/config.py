@@ -39,7 +39,9 @@ logger.add(Directories.LOGS_DIR.value / "runtime.log", mode="w", level="DEBUG")
 try:
     from tqdm import tqdm
 
-    logger.add(lambda msg: tqdm.write(msg, end=""), colorize=True, level=Environments.LOGGING_LEVEL.value)
+    logger.add(
+        lambda msg: tqdm.write(msg, end=""), colorize=True, level=Environments.LOGGING_LEVEL.value
+    )
 except ModuleNotFoundError:
     import sys
 
