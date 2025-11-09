@@ -1,4 +1,4 @@
-name: Perform unit tests
+name: Perform linting and unit tests
 
 on:
   push:
