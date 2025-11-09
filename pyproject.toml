@@ -17,6 +17,7 @@ classifiers = [
 ]
 dependencies = [
     "dotenv>=0.9.9",
+    "huggingface-hub>=1.1.2",
     "iprogress>=0.4",
     "ipykernel>=7.1.0",
     "loguru>=0.7.3",
