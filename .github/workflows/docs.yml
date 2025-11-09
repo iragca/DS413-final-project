@@ -1,4 +1,4 @@
-name: ci 
+name: Deploy Documentation to GitHub Pages
 on:
   push:
     branches: [ "master" ] 
