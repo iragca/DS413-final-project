@@ -20,6 +20,7 @@ class Color(Enum):
     GRAY = "#9c9ca1"
     VIOLET = "#7a21dd"
     WHITE = "#ffffff"
+    GREEN = "#14802d"
 
     # Accents
     DARK_GRAY = "#3b3b3b"
