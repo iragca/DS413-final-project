@@ -1,0 +1,6 @@
+site_name: DS413-final-project
+# 
+site_author: Chris Irag
+# 
+theme:
+  name: material
