@@ -6,7 +6,7 @@ from typing import Union
 from huggingface_hub import HfApi
 from polars import DataFrame
 
-from lib.config import Directories
+from lib.config import Directories, logger
 
 from .storage import Storage
 
@@ -67,6 +67,7 @@ class HuggingFace(Storage):
         >>> # Save a local file
         >>> client.save("/path/to/file.csv", "myuser/myrepo")
         """
+        logger.debug(f"Input data type for saving: {type(data)}")
         if isinstance(data, (Path, str)):
             return self._save_file(data, repo_id)
 
@@ -98,6 +99,7 @@ class HuggingFace(Storage):
         The temporary file is deleted after the upload.
         """
         with tempfile.NamedTemporaryFile(suffix=".csv", delete=True) as tmp_file:
+            logger.debug(f"Saving DataFrame to temporary file: {tmp_file.name}")
             df.write_csv(tmp_file.name)
             self._save_file(Path(tmp_file.name), repo_id)
 
@@ -127,6 +129,7 @@ class HuggingFace(Storage):
         """
         file = self.resolve_path(file)
         self.validate_file(file)
+        logger.debug(f"Uploading file {file} to repo {repo_id}")
         self.api.upload_file(
             path_or_fileobj=file,
             path_in_repo="/",
@@ -177,6 +180,7 @@ class HuggingFace(Storage):
             >>> storage.load("owner/dataset", "data.csv")
             PosixPath("/abs/path/to/external_data/huggingface/data.csv")
         """
+        logger.debug(f"Downloading file {filename} from repo {repo_id}")
         downloaded_file = Path(
             self.api.hf_hub_download(
                 repo_id=repo_id,
@@ -184,6 +188,8 @@ class HuggingFace(Storage):
                 filename=filename,
             )
         ).resolve()
+
+        logger.debug(f"Downloaded file path: {downloaded_file}")
 
         if not downloaded_file.exists():
             raise Exception(f"Failed to download file {filename} from repo {repo_id}.")
@@ -200,6 +206,9 @@ class HuggingFace(Storage):
 
         if new_name.exists():
             new_name.unlink()
+            logger.debug(f"Existing file {new_name} deleted before renaming.")
+
+        logger.debug(f"Renaming saved file {saved_file} to {new_name}")
 
         saved_file.rename(new_name)
         return new_name
