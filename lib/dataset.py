@@ -14,7 +14,7 @@ def main():
     datasets = [flood_control_dataset]
 
     for dataset_func in datasets:
-        with tqdm(total=1, desc=dataset_func.__name__) as pbar:
+        with tqdm(total=len(datasets), desc=dataset_func.__name__) as pbar:
             dataset_func()
             pbar.update(1)
 
@@ -22,6 +22,10 @@ def main():
 
 
 def flood_control_dataset():
+    """
+    Download the flood control dataset from Hugging Face.
+    Dataset source: https://bettergov.ph/flood-control-projects
+    """
     storage = HuggingFace()
     data_path = storage.load(
         repo_id="chrisandrei/DPWH_Flood_Control_2018-2025_Projects",
