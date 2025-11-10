@@ -14,9 +14,7 @@ from .storage import Storage
 class HuggingFace(Storage):
     def __init__(self, token: Union[str, None] = os.getenv("HF_TOKEN")) -> None:
         super().__init__()
-        if not token:
-            raise ValueError("Hugging Face token must be provided.")
-
+        self.token = token
         self.api = HfApi(token=token)
 
     def save(self, data: Union[DataFrame, Path, str], repo_id: str) -> bool:
@@ -199,5 +197,9 @@ class HuggingFace(Storage):
             mode="hardlink",
         )
         new_name = save_dir / filename
+
+        if new_name.exists():
+            new_name.unlink()
+
         saved_file.rename(new_name)
         return new_name
