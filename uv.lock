@@ -506,6 +506,21 @@ wheels = [
 ]
 
 [[package]]
+name = "kagglehub"
+version = "0.3.13"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "packaging" },
+    { name = "pyyaml" },
+    { name = "requests" },
+    { name = "tqdm" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/1c/12/e13c1c8b203535b15dacc420c0f1596dda67463175ff1e4404af21815bdd/kagglehub-0.3.13.tar.gz", hash = "sha256:d3c8b6250627d665096cd91a9487559bf5ed61be607eaf63d14511b20eea646e", size = 113694, upload-time = "2025-08-26T16:17:33.486Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/a4/8e/4077b08b95a1f8302c694a8b399bd413815fbe89045c41e6e08cd7d9439a/kagglehub-0.3.13-py3-none-any.whl", hash = "sha256:e00dec8b81396cbad9c7b5eb62a33cf8ae27da26227abd196ed8f054c845ca00", size = 68257, upload-time = "2025-08-26T16:17:32.13Z" },
+]
+
+[[package]]
 name = "kiwisolver"
 version = "1.4.9"
 source = { registry = "https://pypi.org/simple" }
@@ -547,6 +562,7 @@ dependencies = [
     { name = "huggingface-hub" },
     { name = "iprogress" },
     { name = "ipykernel" },
+    { name = "kagglehub" },
     { name = "loguru" },
     { name = "matplotlib" },
     { name = "mkdocs" },
@@ -557,6 +573,7 @@ dependencies = [
     { name = "pyarrow" },
     { name = "pytest" },
     { name = "python-dotenv" },
+    { name = "questionary" },
     { name = "ruff" },
     { name = "seaborn" },
     { name = "tqdm" },
@@ -568,6 +585,7 @@ requires-dist = [
     { name = "huggingface-hub", specifier = ">=1.1.2" },
     { name = "iprogress", specifier = ">=0.4" },
     { name = "ipykernel", specifier = ">=7.1.0" },
+    { name = "kagglehub", specifier = ">=0.3.13" },
     { name = "loguru", specifier = ">=0.7.3" },
     { name = "matplotlib", specifier = ">=3.10.7" },
     { name = "mkdocs" },
@@ -578,6 +596,7 @@ requires-dist = [
     { name = "pyarrow", specifier = ">=22.0.0" },
     { name = "pytest" },
     { name = "python-dotenv" },
+    { name = "questionary", specifier = ">=2.1.1" },
     { name = "ruff" },
     { name = "seaborn", specifier = ">=0.13.2" },
     { name = "tqdm", specifier = ">=4.67.1" },
@@ -1227,6 +1246,18 @@ wheels = [
     { url = "https://files.pythonhosted.org/packages/4f/6f/55c10e2e49ad52d080dc24e37adb215e5b0d64990b57598abc2e3f01725b/pyzmq-27.1.0-cp313-cp313t-win32.whl", hash = "sha256:7ccc0700cfdf7bd487bea8d850ec38f204478681ea02a582a8da8171b7f90a1c", size = 574964, upload-time = "2025-09-08T23:08:37.178Z" },
     { url = "https://files.pythonhosted.org/packages/87/4d/2534970ba63dd7c522d8ca80fb92777f362c0f321900667c615e2067cb29/pyzmq-27.1.0-cp313-cp313t-win_amd64.whl", hash = "sha256:8085a9fba668216b9b4323be338ee5437a235fe275b9d1610e422ccc279733e2", size = 641029, upload-time = "2025-09-08T23:08:40.595Z" },
     { url = "https://files.pythonhosted.org/packages/f6/fa/f8aea7a28b0641f31d40dea42d7ef003fded31e184ef47db696bc74cd610/pyzmq-27.1.0-cp313-cp313t-win_arm64.whl", hash = "sha256:6bb54ca21bcfe361e445256c15eedf083f153811c37be87e0514934d6913061e", size = 561541, upload-time = "2025-09-08T23:08:42.668Z" },
+]
+
+[[package]]
+name = "questionary"
+version = "2.1.1"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "prompt-toolkit" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/f6/45/eafb0bba0f9988f6a2520f9ca2df2c82ddfa8d67c95d6625452e97b204a5/questionary-2.1.1.tar.gz", hash = "sha256:3d7e980292bb0107abaa79c68dd3eee3c561b83a0f89ae482860b181c8bd412d", size = 25845, upload-time = "2025-08-28T19:00:20.851Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/3c/26/1062c7ec1b053db9e499b4d2d5bc231743201b74051c973dadeac80a8f43/questionary-2.1.1-py3-none-any.whl", hash = "sha256:a51af13f345f1cdea62347589fbb6df3b290306ab8930713bfae4d475a7d4a59", size = 36753, upload-time = "2025-08-28T19:00:19.56Z" },
 ]
 
 [[package]]
