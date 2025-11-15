@@ -1,4 +1,6 @@
+import kagglehub
 from loguru import logger
+import questionary
 from tqdm import tqdm
 import typer
 
@@ -11,11 +13,24 @@ app = typer.Typer()
 def main():
     logger.info("Downloading datasets...")
 
-    datasets = [flood_control_dataset]
+    datasets = {
+        dataset.__name__: dataset
+        for dataset in [
+            flood_control_dataset,
+            plant_doc_dataset,
+            plantvillage_dataset,
+            daimos_dataset,
+        ]
+    }
 
-    for dataset_func in datasets:
-        with tqdm(total=len(datasets), desc=dataset_func.__name__) as pbar:
-            dataset_func()
+    chosen_datasets = questionary.checkbox(
+        "Select datasets to download:",
+        choices=[dataset_name for dataset_name in datasets],
+    ).ask()
+
+    for dataset_name in chosen_datasets:
+        with tqdm(total=1, desc=dataset_name) as pbar:
+            datasets[dataset_name]()
             pbar.update(1)
 
     logger.success("Downloading datasets complete.")
@@ -32,6 +47,43 @@ def flood_control_dataset():
         filename="flood-control-projects-visual_2025-11-08.csv",
     )
     logger.info(f"Flood control dataset saved to: {data_path}")
+    return data_path
+
+
+def plant_doc_dataset():
+    """
+    Download the PlantDoc dataset from Hugging Face.
+    Dataset source: https://www.kaggle.com/datasets/nirmalsankalana/plantdoc-dataset
+    """
+    # Download latest version
+    path = kagglehub.dataset_download("nirmalsankalana/plantdoc-dataset")
+
+    print("Path to dataset files:", path)
+    return path
+
+
+def plantvillage_dataset():
+    """
+    Download the PlantVillage dataset from Kaggle.
+    Dataset source: https://www.kaggle.com/datasets/abdallahalidev/plantvillage-dataset
+    """
+    # Download latest version
+    path = kagglehub.dataset_download("abdallahalidev/plantvillage-dataset")
+    print("Path to dataset files:", path)
+    return path
+
+
+def daimos_dataset():
+    """
+    Download the Daimos dataset from Kaggle.
+    Dataset source: https://huggingface.co/datasets/chrisandrei/diamos
+    """
+    storage = HuggingFace()
+    data_path = storage.load(
+        repo_id="chrisandrei/diamos",
+        filename="leaves.zip",
+    )
+    logger.info(f"Daimos dataset saved to: {data_path}")
     return data_path
 
 
