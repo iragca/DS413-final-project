@@ -86,6 +86,20 @@ def daimos_dataset():
     logger.info(f"Daimos dataset saved to: {data_path}")
     return data_path
 
+def megaplant_dataset():
+    """
+    Compiled images of various plant datasets.
+    Download the Processed Dataset from Hugging Face.
+    Dataset source: https://huggingface.co/datasets/chrisandrei/MegaPlant
+    """
+    storage = HuggingFace()
+    data_path = storage.load(
+        repo_id="chrisandrei/MegaPlant",
+        filename="leaves.zip",
+    )
+    logger.info(f"Processed dataset saved to: {data_path}")
+    return data_path
+
 
 if __name__ == "__main__":
     app()
