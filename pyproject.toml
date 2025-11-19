@@ -6,14 +6,12 @@ build-backend = "flit_core.buildapi"
 name = "lib"
 version = "0.0.1"
 description = "Final Project for DS413"
-authors = [
-    { name = "Chris Irag", email = "chrisandrei.irag@1.ustp.edu.ph" }
-]
+authors = [{ name = "Chris Irag", email = "chrisandrei.irag@1.ustp.edu.ph" }]
 license = { file = "LICENSE" }
 readme = "README.md"
 classifiers = [
     "Programming Language :: Python :: 3",
-    "License :: OSI Approved :: MIT License"
+    "License :: OSI Approved :: MIT License",
 ]
 dependencies = [
     "dotenv>=0.9.9",
@@ -36,7 +34,7 @@ dependencies = [
     "ruff",
     "seaborn>=0.13.2",
     "torch>=2.9.1",
-    "torch-vision>=0.1.6.dev0",
+    "torchvision>=0.24.1",
     "tqdm>=4.67.1",
 ]
 requires-python = "~=3.13.0"
@@ -48,9 +46,8 @@ src = ["lib"]
 include = ["pyproject.toml", "lib/**/*.py"]
 
 [tool.ruff.lint]
-extend-select = ["I"]  # Add import sorting
+extend-select = ["I"] # Add import sorting
 
 [tool.ruff.lint.isort]
 known-first-party = ["lib"]
 force-sort-within-sections = true
-
