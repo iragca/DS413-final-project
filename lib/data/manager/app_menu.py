@@ -3,6 +3,7 @@ import questionary
 from .base_menu import BaseMenu
 from .deduplicate_files import DeduplicateFilesMenu
 from .download_dataset import DownloadDatasetMenu
+from .splitter_menu import SplitterMenu
 
 
 class AppMenu(BaseMenu):
@@ -13,6 +14,7 @@ class AppMenu(BaseMenu):
                 choices=[
                     "Download Datasets",
                     "Deduplicate Dataset",
+                    "Split Dataset",
                 ],
             ).ask()
 
@@ -21,6 +23,8 @@ class AppMenu(BaseMenu):
                     DownloadDatasetMenu(self.breadcrumb_path)()
                 case "Deduplicate Dataset":
                     DeduplicateFilesMenu(self.breadcrumb_path)()
+                case "Split Dataset":
+                    SplitterMenu(self.breadcrumb_path)()
                 case None:
                     break
                 case _:
