@@ -86,6 +86,7 @@ def daimos_dataset():
     logger.info(f"Daimos dataset saved to: {data_path}")
     return data_path
 
+
 def megaplant_dataset():
     """
     Compiled images of various plant datasets.
