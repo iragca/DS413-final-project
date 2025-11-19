@@ -4,6 +4,8 @@ from pathlib import Path
 import random
 from typing import Literal
 
+from tqdm import tqdm
+
 from lib.config import logger
 
 type Strategy = Literal["keep_first", "keep_last", "keep_random"]
@@ -69,12 +71,12 @@ class Deduplicator:
         all_files = self.get_files(folder)
         logger.info(f"Found {len(all_files)} files in folder {folder}")
 
-        for file_path in all_files:
+        for file_path in tqdm(all_files, desc="Hashing files"):
             file_hash = self.hash_file(file_path)
             seen_hashes[file_hash].append(file_path)
 
         # Identify duplicates
-        for hash, files in seen_hashes.items():
+        for hash, files in tqdm(seen_hashes.items(), desc="Identifying duplicates"):
             if len(files) > 1:
                 logger.debug(f"Found duplicates for hash {hash}: {[str(f) for f in files]}")
                 self.delete_files(files, strategy)
