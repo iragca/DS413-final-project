@@ -21,6 +21,13 @@ Functionalities
 - Download datasets
 - Deduplicated files
 
+### How to Navigate
+
+| Keybind       | Functionality                 |
+|---------------|-------------------------------| 
+| `Ctrl+C`      | Quit the app or current menu  |
+| `Arrow Keys`  | Navigate choices              |
+
 # Development
 
 ```bash
