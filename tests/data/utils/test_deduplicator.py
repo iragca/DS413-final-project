@@ -1,4 +1,4 @@
-from lib.data.utils import Deduplicator
+from lib.data.utils import Deduplicator, get_files
 
 
 def test_hash_file(tmp_path):
@@ -25,8 +25,8 @@ def test_get_files(tmp_path):
     file1.write_text("File 1 content")
     file2.write_text("File 2 content")
 
-    # Get all files using Deduplicator
-    all_files = Deduplicator.get_files(tmp_path)
+    # Get all files
+    all_files = get_files(tmp_path)
 
     # Check that both files are found
     assert set(all_files) == {file1, file2}
@@ -46,7 +46,7 @@ def test_deduplicate_folder_keep_first(tmp_path):
     deduplicator.deduplicate_folder(tmp_path, strategy="keep_first")
 
     # After deduplication, only one of the duplicate files should remain
-    remaining_files = Deduplicator.get_files(tmp_path)
+    remaining_files = get_files(tmp_path)
     remaining_file_names = [f.name for f in remaining_files]
 
     assert "file1.txt" in remaining_file_names
@@ -67,7 +67,7 @@ def test_deduplicate_folder_keep_last(tmp_path):
     deduplicator.deduplicate_folder(tmp_path, strategy="keep_last")
 
     # After deduplication, only the last duplicate file should remain
-    remaining_files = Deduplicator.get_files(tmp_path)
+    remaining_files = get_files(tmp_path)
     remaining_file_names = [f.name for f in remaining_files]
 
     assert "file1.txt" not in remaining_file_names
