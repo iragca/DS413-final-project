@@ -8,8 +8,18 @@ We work with uv. You can install it [here](https://docs.astral.sh/uv/guides/inst
 
 ```bash
 make requirements   #  Install dependencies
-make data           #  Download datasets
 ```
+
+## Dataset Manager
+
+```bash
+make data           #  Run the CLI dataset manager
+```
+
+Functionalities
+
+- Download datasets
+- Deduplicated files
 
 # Development
 
