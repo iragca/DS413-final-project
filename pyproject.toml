@@ -14,7 +14,9 @@ classifiers = [
     "License :: OSI Approved :: MIT License",
 ]
 dependencies = [
+    "beartype>=0.22.5",
     "dotenv>=0.9.9",
+    "faker>=38.0.0",
     "huggingface-hub>=1.1.2",
     "iprogress>=0.4",
     "ipykernel>=7.1.0",
