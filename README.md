@@ -20,6 +20,7 @@ Functionalities
 
 - Download datasets
 - Deduplicated files
+- Splitting the MegaPlantDataset
 
 ### How to Navigate
 
