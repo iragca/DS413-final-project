@@ -1,5 +1,5 @@
 ---
-title: "MegaPlant: Applying Deep Learning in Plant Disease Detection Under Multiple Conditions"
+title: MegaPlant
 short_title: MegaPlant
 description: A case study in plant pathology & deep learning.
 license:
