@@ -1,3 +1,19 @@
+---
+title: "MegaPlant: Applying Deep Learning in Plant Disease Detection Under Multiple Conditions"
+short_title: MegaPlant
+description: A case study in plant pathology & deep learning.
+license:
+  content: CC-BY-SA-4.0
+keywords:
+- Plant pathology
+- Image classification
+- Deep learning
+- Convolutional neural networks
+export:
+  - format: pdf
+    template: lapreprint
+---
+
 +++ { "part": "abstract" }
 
 We propose a case study of applying deep learning in plant disease detection under multiple conditions as part of our coursework in DS413 Deep Learning. We introduce as a background what plant symptoms are and how our case study tackles the issue of visually identifying plant illnesses. We identified both conventional and unconventional plant disease detection techniques. The shortcomings and advantages of recent advancements in deep learning-based plant disease detection were examined, and we learned how we might approach the challenge of deep learning-based plant disease detection, especially on datasets of leaf images under various conditions, such as laboratory, field, and stock images.

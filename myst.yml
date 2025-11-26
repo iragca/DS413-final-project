@@ -7,6 +7,10 @@ project:
   venue: DS413 Deep Learning
   date: "2025-12-12"
   github: https://github.com/iragca/DS413-final-project
+  open_access: true
+  license:
+    content: CC-BY-SA-4.0
+    code: MIT
   authors:
     - name: Chris Andrei Irag
       orcid: 0009-0005-0635-1666
