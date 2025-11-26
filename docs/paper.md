@@ -54,9 +54,9 @@ To diagnose a plant immediately is by looking at the symptoms, these symptoms ar
 :label: figure-2
 :align: center
 
-![localized lesions caused by virus](images/figure2/pmmov-lesions.png)
+![Plants showing 9 of many symptoms observable by the human eye](images/figure2/fig2.png)
 
-Plants showing 9 of many symptoms observable by the human eye. (a) [Colson et al., 2010](http://doi.org/10.1371/journal.pone.0010041), 4; (b, c, d, e, f, g, h, i) [Agrios, 2009, 627-634](https://www.doi.org/10.1016/B978-012373944-5.00344-8).
+Plants showing 9 of many symptoms observable by the human eye. (a) localized lesions caused by virus ([Colson et al., 2010](http://doi.org/10.1371/journal.pone.0010041)), 4; (b) an apple exuding bacterial ooze, (c) scorched leaf symptoms caused by bacteria, (d) canker on a leaf stem, (e) tomato ring malformations, (f) mosaic pattern symptom (g) dwarfism/stunted growth and bronzing caused by virus, (h) malformation and mosaic pattern symptoms, (i) tree bark afflicted with rot ([Agrios, 2009, 627-634](https://www.doi.org/10.1016/B978-012373944-5.00344-8)).
 :::::
 
 Symptoms caused by abiotic factors are referred to as disorders. These symptoms are usually uniform, affecting large or evenly distributed areas of vegetation. In contrast, diseases caused by pathogens are often non-uniform and appear as scattered or irregular patches in the field ([UNH Extension, 2015](https://www.youtube.com/watch?v=7HnLVYhvars)). With deep learning models that focus on visual inspection for plant disease detection, it may be more practical to determine if a plant is unhealthy or otherwise, rather than detecting specific diseases or disorders.
