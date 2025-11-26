@@ -5,10 +5,10 @@ description: A case study in plant pathology & deep learning.
 license:
   content: CC-BY-SA-4.0
 keywords:
-- Plant pathology
-- Image classification
-- Deep learning
-- Convolutional neural networks
+  - Plant pathology
+  - Image classification
+  - Deep learning
+  - Convolutional neural networks
 export:
   - format: pdf
     template: lapreprint
@@ -19,7 +19,6 @@ export:
 We propose a case study of applying deep learning in plant disease detection under multiple conditions as part of our coursework in DS413 Deep Learning. We introduce as a background what plant symptoms are and how our case study tackles the issue of visually identifying plant illnesses. We identified both conventional and unconventional plant disease detection techniques. The shortcomings and advantages of recent advancements in deep learning-based plant disease detection were examined, and we learned how we might approach the challenge of deep learning-based plant disease detection, especially on datasets of leaf images under various conditions, such as laboratory, field, and stock images.
 
 +++
-
 
 # Background
 
@@ -43,8 +42,6 @@ These are caused by pathogens such as viruses, bacteria, fungus, oomycetes (fung
 
 ![fungus on an infected host flower ](images/figure1/fungus.png)
 
-
-
 Morphology[^morphology] of various pathogens. (a) [Colson et al., 2010, 4](http://doi.org/10.1371/journal.pone.0010041); (b) [Dow et al., 2016](https://doi.org/10.1016/B978-0-12-394807-6.00051-4); (c) [Pinto et al., 2016, 258](https://doi.org/10.1590/0100-5405/2101); (d) [Raza et al., 2022, 8](https://doi.org/10.17582/journal.sja/2022/38.4.1189.1202); (e) [Mitiku, 2018, 36](https://doi.org/10.19080/ARTOAJ.2018.16.55580); (f) [Agrios, 2009, 617](https://www.doi.org/10.1016/B978-012373944-5.00344-8).
 
 :::::
@@ -52,3 +49,27 @@ Morphology[^morphology] of various pathogens. (a) [Colson et al., 2010, 4](http:
 [^morphology]: **morphology**, in biology, is the study of the size, shape, and structure of animals, plants, and microorganisms and of the relationships of their constituent parts. - [www.britannica.com](https://www.britannica.com/science/morphology-biology)
 
 See [](#ppmov) for the fruit, and [](#figure-1) to reference both subfigures.
+
+## Symptoms
+
+## Signs
+
+## Detection Methods
+
+### Manual and Laboratory Methods
+
+### Image Processing
+
+### Spectral and Sensor-Based Method
+
+# Recent Advances
+
+# Current limitations
+
+# Methodology
+
+## Splits
+
+# Objectives
+
+# Summary
