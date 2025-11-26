@@ -67,12 +67,11 @@ For example, a deep learning model may classify a plant as unhealthy due to bron
 :label: figure-3
 :align: center
 
-![Total loss of a corn field due to drought](images/figure3/drought.jpg)
+![Abiotic versus biotic induced symptoms](images/figure3/fig3.png)
 
-![Dehydrated tree due to fungi inhibiting water passage to tree branches](images/figure3/fungus-dehydration.png)
 
 Abiotic versus biotic induced symptoms.
-(a) [The Independent, 2019](https://www.independent.co.ug/130-drought-affected-farmers-benefit-from-crop-insurance/); (b) [Agrios, 2009, 618](https://www.doi.org/10.1016/B978-012373944-5.00344-8).
+(a) Total loss of a corn field due to drought ([The Independent, 2019](https://www.independent.co.ug/130-drought-affected-farmers-benefit-from-crop-insurance/)); (b) Dehydrated tree due to fungi inhibiting water passage to tree branches ([Agrios, 2009, 618](https://www.doi.org/10.1016/B978-012373944-5.00344-8)).
 :::::
 
 [](#figure-3) shows the same symptoms in two different plants but caused by different factors. This shows that environmental context will be needed when diagnosing plant diseases. As such, this case study will focus only on identifying whether a plant is healthy or unhealthy based on the symptoms observed by the human eye.
