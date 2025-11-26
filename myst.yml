@@ -1,7 +1,6 @@
 version: 1
 project:
   title: MegaPlant
-  short_title: MegaPlant
   subtitle: Applying Deep Learning in Plant Disease Detection under multiple conditions
   subject: Case Study
   venue: DS413 Deep Learning
