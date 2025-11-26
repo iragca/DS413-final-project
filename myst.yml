@@ -37,8 +37,8 @@ project:
     - Image classification
     - Deep learning
     - Convolutional neural networks
-  banner: docs/images/banner.png
-  thumbnail: docs/images/banner.png
+  banner: docs/images/banner.avif
+  thumbnail: docs/images/banner.avif
 site:
   options:
     folders: true
