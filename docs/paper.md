@@ -36,7 +36,7 @@ These are caused by pathogens such as viruses, bacteria, fungus, oomycetes (fung
 
 ![Pepper mild mottle virus](images/figure1/fig1.png)
 
-Morphology[^morphology] of various pathogens. (a) Pepper mild mottle virus ([Colson et al., 2010, 4](http://doi.org/10.1371/journal.pone.0010041)); (b) Cabbage afflicted with black rot marked XV ([Dow et al., 2016](https://doi.org/10.1016/B978-0-12-394807-6.00051-4)); (c) fungus on an infected host flower ([Pinto et al., 2016, 258](https://doi.org/10.1590/0100-5405/2101)); (d) oomycete "potato blight" *P. infestans* [Raza et al., 2022, 8](https://doi.org/10.17582/journal.sja/2022/38.4.1189.1202); (e) parasitic nematode ([Mitiku, 2018, 36](https://doi.org/10.19080/ARTOAJ.2018.16.55580)); (f) parasitic plant "witchweed" *Striga* ([Agrios, 2009, 617](https://www.doi.org/10.1016/B978-012373944-5.00344-8)).
+Morphology[^morphology] of various pathogens. (a) Pepper mild mottle virus ([Colson et al., 2010, 4](http://doi.org/10.1371/journal.pone.0010041)); (b) Cabbage afflicted with black rot marked XV ([Dow et al., 2016](https://doi.org/10.1016/B978-0-12-394807-6.00051-4)); (c) fungus on an infected host flower ([Pinto et al., 2016, 258](https://doi.org/10.1590/0100-5405/2101)); (d) oomycete "potato blight" _P. infestans_ [Raza et al., 2022, 8](https://doi.org/10.17582/journal.sja/2022/38.4.1189.1202); (e) parasitic nematode ([Mitiku, 2018, 36](https://doi.org/10.19080/ARTOAJ.2018.16.55580)); (f) parasitic plant "witchweed" _Striga_ ([Agrios, 2009, 617](https://www.doi.org/10.1016/B978-012373944-5.00344-8)).
 
 :::::
 
@@ -59,7 +59,7 @@ To diagnose a plant immediately is by looking at the symptoms, these symptoms ar
 Plants showing 9 of many symptoms observable by the human eye. (a) localized lesions caused by virus ([Colson et al., 2010](http://doi.org/10.1371/journal.pone.0010041)), 4; (b) an apple exuding bacterial ooze, (c) scorched leaf symptoms caused by bacteria, (d) canker[^canker] on a leaf stem, (e) tomato ring malformations, (f) mosaic pattern symptom (g) dwarfism/stunted growth and bronzing caused by virus, (h) malformation and mosaic pattern symptoms, (i) tree bark afflicted with rot ([Agrios, 2009, 627-634](https://www.doi.org/10.1016/B978-012373944-5.00344-8)).
 :::::
 
-[^canker]: Sunken necrotic patch of bark ([Beckerman & Creswell, n.d., 9](https://www.extension.purdue.edu/extmedia/BP/BP-164-W.pdf))
+[^canker]: Sunken necrotic patch of bark ([Beckerman & Creswell, n.d., 9](https://www.extension.purdue.edu/extmedia/BP/BP-164-W.pdf)).
 
 Symptoms caused by abiotic factors are referred to as disorders. These symptoms are usually uniform, affecting large or evenly distributed areas of vegetation. In contrast, diseases caused by pathogens are often non-uniform and appear as scattered or irregular patches in the field ([UNH Extension, 2015](https://www.youtube.com/watch?v=7HnLVYhvars)). With deep learning models that focus on visual inspection for plant disease detection, it may be more practical to determine if a plant is unhealthy or otherwise, rather than detecting specific diseases or disorders.
 
@@ -70,7 +70,6 @@ For example, a deep learning model may classify a plant as unhealthy due to bron
 :align: center
 
 ![Abiotic versus biotic induced symptoms](images/figure3/fig3.png)
-
 
 Abiotic versus biotic induced symptoms.
 (a) Total loss of a corn field due to drought ([The Independent, 2019](https://www.independent.co.ug/130-drought-affected-farmers-benefit-from-crop-insurance/)); (b) Dehydrated tree due to fungi inhibiting water passage to the tree branches ([Agrios, 2009, 618](https://www.doi.org/10.1016/B978-012373944-5.00344-8)).
@@ -84,7 +83,9 @@ Abiotic versus biotic induced symptoms.
 :label: figure-4
 :align: center
 
-Signs of the P&Ps inflicting disease ([Beckerman & Creswell, 2022](https://www.extension.purdue.edu/extmedia/BP/BP-164-W.pdf))
+![Signs of the P&Ps inflicting disease](images/figure4/fig4.png)
+
+Signs of the P&Ps inflicting disease. (a) fungus growing as conks, (b) flagging, the insect feeding on the branch is highlighted, (c) powdery mildew appearance is composed of a fungus’ hyphae, (d) web-like hyphae of a fungus, (e) rusting and spores of a fungus, (f) japanese beetles feeding ([Beckerman & Creswell, 2022](https://www.extension.purdue.edu/extmedia/BP/BP-164-W.pdf)).
 :::::
 
 Signs are physical evidence of the pathogen or pest, the real cause of the plant disease. Knowing the signs are key information to generating actions or solutions for P&P management.
