@@ -44,10 +44,10 @@ test:
 	uv run pytest tests
 
 
-## Run mkdocs local server
+## Run jupyter-book local server
 .PHONY: docs
 docs:
-	uv run mkdocs serve -f docs/mkdocs.yml -a localhost:7000
+	uv run jupyter-book start
 
 ## Download datasets
 .PHONY: data

@@ -34,7 +34,7 @@ Functionalities
 ```bash
 make lint           #  Lint the code
 make format         #  Format the code
-make docs           #  Run a local mkdocs server for documentation
+make docs           #  Run a local jupyter-book server for documentation
 make tests          #  Run unit tests
 ```
 

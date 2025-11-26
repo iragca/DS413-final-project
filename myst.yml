@@ -1,0 +1,20 @@
+version: 1
+project:
+  title: MegaPlant
+  authors:
+    - name: Chris Andrei Irag
+    - name: Ashley Pramio
+    - name: Rod Vincent Dela Vega
+  copyright: '2025'
+  exclude:
+    - .venv
+    - README.md
+    - materials/**
+    - data/**
+  github: https://github.com/iragca/DS413-final-project
+  toc:
+    - file: docs/introduction.md
+site:
+  options:
+    folders: true
+  template: article-theme
