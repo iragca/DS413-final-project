@@ -1,20 +1,40 @@
 version: 1
 project:
   title: MegaPlant
+  short_title: MegaPlant
+  subtitle: Applying Deep Learning in Plant Disease Detection Under Multiple Conditions
+  subject: Case Study
+  venue: DS413 Deep Learning
+  date: "2025-12-12"
+  github: https://github.com/iragca/DS413-final-project
   authors:
     - name: Chris Andrei Irag
+      orcid: 0009-0005-0635-1666
+      github: iragca
+      email: iragca@pm.me
+      affiliation: "College of Information Technology and Computing, University of Science and Technology of Southern Philippines"
     - name: Ashley Pramio
-    - name: Monique Mendoza
+      affiliation: "College of Information Technology and Computing, University of Science and Technology of Southern Philippines"
+    - name: Monique Antoinette Mendoza
+      affiliation: "College of Information Technology and Computing, University of Science and Technology of Southern Philippines"
     - name: Rod Vincent Dela Vega
-  copyright: '2025'
+      github: rodvincent1
+      affiliation: "College of Information Technology and Computing, University of Science and Technology of Southern Philippines"
+  copyright: "2025"
   exclude:
     - .venv
     - README.md
     - materials/**
     - data/**
-  github: https://github.com/iragca/DS413-final-project
   toc:
-    - file: docs/introduction.md
+    - file: docs/paper.md
+  keywords:
+    - Plant pathology
+    - Image classification
+    - Deep learning
+    - Convolutional neural networks
+  banner: docs/images/banner.png
+  thumbnail: docs/images/banner.png
 site:
   options:
     folders: true

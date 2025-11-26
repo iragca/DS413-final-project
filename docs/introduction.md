@@ -1,3 +1,0 @@
-# MegaPlant
-
-Hello, World!
