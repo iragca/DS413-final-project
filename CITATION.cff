@@ -1,0 +1,15 @@
+type: dataset
+cff-version: 1.2.0
+message: "If you use this dataset, please cite it as below."
+authors:
+  - family-names: "Irag"
+    given-names: "Chris Andrei"
+    orcid: "https://orcid.org/0009-0005-0635-1666"
+  - family-names: "Pramio"
+    given-names: "Ashley"
+  - family-names: "Mendoza"
+    given-names: "Monique Antoinette"
+  - family-names: "Dela Vega"
+    given-names: "Rod Vincent"
+title: "My Research Software"
+url: "https://github.com/iragca/DS413-final-project"
