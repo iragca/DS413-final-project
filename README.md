@@ -1,6 +1,8 @@
 # DS413-final-project
 
-Final Project for DS413
+This final project is part of our coursework in DS413 Deep Learning, which focuses on the field of deep learning & plant pathology. This repository contains the documents, articles and code concerning with this project.
+
+We recommend working inside an [IDE](https://en.wikipedia.org/wiki/Integrated_development_environment) like [Visual Studio Code](https://code.visualstudio.com/) or [JupyterLab](https://jupyterlab.readthedocs.io/en/stable/) as you need to clone the [github repository](https://github.com/iragca/DS413-final-project) for this project.
 
 ## Setup
 
@@ -24,10 +26,10 @@ Functionalities
 
 ### How to Navigate
 
-| Keybind       | Functionality                 |
-|---------------|-------------------------------| 
-| `Ctrl+C`      | Quit the app or current menu  |
-| `Arrow Keys`  | Navigate choices              |
+| Keybind      | Functionality                |
+| ------------ | ---------------------------- |
+| `Ctrl+C`     | Quit the app or current menu |
+| `Arrow Keys` | Navigate choices             |
 
 # Development
 
