@@ -11,6 +11,9 @@ keywords:
 export:
   - format: pdf
     template: lapreprint
+abbreviations:
+  RHR: Resting Heart Rate
+  HR: Human Resources
 ---
 
 +++ { "part": "abstract" }
@@ -19,16 +22,34 @@ We propose a case study of applying deep learning in plant disease detection und
 
 +++
 
+::::{note} Glossary
+:::{glossary}
+abiotic
+: physical components of the environment that affect living organisms. - [Wikipedia](https://en.wikipedia.org/wiki/Abiotic_component)
+
+biotic
+: living components of the environment, living organisms. - [Wikipedia](https://en.wikipedia.org/wiki/Biotic)
+
+canker
+: Sunken necrotic patch of bark. - [Beckerman & Creswell, n.d., 9](https://www.extension.purdue.edu/extmedia/BP/BP-164-W.pdf)
+
+morphology
+: in biology, is the study of the size, shape, and structure of animals, plants, and microorganisms and of the relationships of their constituent parts. - [Britannica](https://www.britannica.com/science/morphology-biology)
+:::
+::::
+
 # Background
 
 Plant diseases are abnormal changes in appearance and behaviour that progresses over time, unlike plant injury that occurs immediately ([DeBusk, 2019](https://www.youtube.com/watch?v=ZM2X-XBRKHM)).
 
+::::{sidebar}
 :::{iframe} https://www.youtube.com/embed/ZM2X-XBRKHM
 :width: 100%
 This video introduces various types of pathogens and their symptoms which are the causes of plant diseases.
 :::
+::::
 
-These are caused by pathogens such as viruses, bacteria, fungus, oomycetes (fungus-like micro-organisms), parasitic nematodes (worm-like micro-organisms), and parasitic plants. Pathogens and pests (P&Ps) account for about 20% and at least 10% of harvest yield loss in major crops ([Savary et al., 2019, 1](https://doi.org/10.1038/s41559-018-0793-y); [Strange & Scott, 2005, 83](http://doi.org/10.1146/annurev.phyto.43.113004.133839)).
+These are caused by pathogens such as viruses, bacteria, fungus, oomycetes (fungus-like micro-organisms), parasitic nematodes (worm-like micro-organisms), and parasitic plants. Pathogens and pests ({abbr}`P&Ps (Pathogens and pests)`) account for about 20% and at least 10% of harvest yield loss in major crops ([Savary et al., 2019, 1](https://doi.org/10.1038/s41559-018-0793-y); [Strange & Scott, 2005, 83](http://doi.org/10.1146/annurev.phyto.43.113004.133839)).
 
 :::::{figure}
 :label: figure-1
@@ -36,11 +57,9 @@ These are caused by pathogens such as viruses, bacteria, fungus, oomycetes (fung
 
 ![Pepper mild mottle virus](images/figure1/fig1.png)
 
-Morphology[^morphology] of various pathogens. (a) Pepper mild mottle virus ([Colson et al., 2010, 4](http://doi.org/10.1371/journal.pone.0010041)); (b) Cabbage afflicted with black rot marked XV ([Dow et al., 2016](https://doi.org/10.1016/B978-0-12-394807-6.00051-4)); (c) fungus on an infected host flower ([Pinto et al., 2016, 258](https://doi.org/10.1590/0100-5405/2101)); (d) oomycete "potato blight" _P. infestans_ [Raza et al., 2022, 8](https://doi.org/10.17582/journal.sja/2022/38.4.1189.1202); (e) parasitic nematode ([Mitiku, 2018, 36](https://doi.org/10.19080/ARTOAJ.2018.16.55580)); (f) parasitic plant "witchweed" _Striga_ ([Agrios, 2009, 617](https://www.doi.org/10.1016/B978-012373944-5.00344-8)).
+{term}`Morphology` of various pathogens. (a) Pepper mild mottle virus ([Colson et al., 2010, 4](http://doi.org/10.1371/journal.pone.0010041)); (b) Cabbage afflicted with black rot marked XV ([Dow et al., 2016](https://doi.org/10.1016/B978-0-12-394807-6.00051-4)); (c) fungus on an infected host flower ([Pinto et al., 2016, 258](https://doi.org/10.1590/0100-5405/2101)); (d) oomycete "potato blight" _P. infestans_ [Raza et al., 2022, 8](https://doi.org/10.17582/journal.sja/2022/38.4.1189.1202); (e) parasitic nematode ([Mitiku, 2018, 36](https://doi.org/10.19080/ARTOAJ.2018.16.55580)); (f) parasitic plant "witchweed" _Striga_ ([Agrios, 2009, 617](https://www.doi.org/10.1016/B978-012373944-5.00344-8)).
 
 :::::
-
-[^morphology]: **morphology**, in biology, is the study of the size, shape, and structure of animals, plants, and microorganisms and of the relationships of their constituent parts. - [www.britannica.com](https://www.britannica.com/science/morphology-biology)
 
 Although most diseases are caused by pathogens or biotic factors, some are a result of direct injury or abiotic factors, also called environmental factors. These factors are drought, winter, disruptive human activities, etc. Diseases caused by abiotic factors are easier to diagnose but harder to control ([Agrios, 2009, 613](https://www.doi.org/10.1016/B978-012373944-5.00344-8)).
 
@@ -56,14 +75,12 @@ To diagnose a plant immediately is by looking at the symptoms, these symptoms ar
 
 ![Plants showing 9 of many symptoms observable by the human eye](images/figure2/fig2.png)
 
-Plants showing 9 of many symptoms observable by the human eye. (a) localized lesions caused by virus ([Colson et al., 2010](http://doi.org/10.1371/journal.pone.0010041)), 4; (b) an apple exuding bacterial ooze, (c) scorched leaf symptoms caused by bacteria, (d) canker[^canker] on a leaf stem, (e) tomato ring malformations, (f) mosaic pattern symptom (g) dwarfism/stunted growth and bronzing caused by virus, (h) malformation and mosaic pattern symptoms, (i) tree bark afflicted with rot ([Agrios, 2009, 627-634](https://www.doi.org/10.1016/B978-012373944-5.00344-8)).
+Plants showing 9 of many symptoms observable by the human eye. (a) localized lesions caused by virus ([Colson et al., 2010](http://doi.org/10.1371/journal.pone.0010041)), 4; (b) an apple exuding bacterial ooze, (c) scorched leaf symptoms caused by bacteria, (d) {term}`canker` on a leaf stem, (e) tomato ring malformations, (f) mosaic pattern symptom (g) dwarfism/stunted growth and bronzing caused by virus, (h) malformation and mosaic pattern symptoms, (i) tree bark afflicted with rot ([Agrios, 2009, 627-634](https://www.doi.org/10.1016/B978-012373944-5.00344-8)).
 :::::
 
-[^canker]: Sunken necrotic patch of bark ([Beckerman & Creswell, n.d., 9](https://www.extension.purdue.edu/extmedia/BP/BP-164-W.pdf)).
+Symptoms caused by abiotic factors are referred to as disorders. These symptoms are usually uniform, affecting large or evenly distributed areas of vegetation. In contrast, diseases caused by pathogens are often non-uniform and appear as scattered or irregular patches in the field ([UNH Extension, 2015](https://www.youtube.com/watch?v=7HnLVYhvars)).
 
-Symptoms caused by abiotic factors are referred to as disorders. These symptoms are usually uniform, affecting large or evenly distributed areas of vegetation. In contrast, diseases caused by pathogens are often non-uniform and appear as scattered or irregular patches in the field ([UNH Extension, 2015](https://www.youtube.com/watch?v=7HnLVYhvars)). With deep learning models that focus on visual inspection for plant disease detection, it may be more practical to determine if a plant is unhealthy or otherwise, rather than detecting specific diseases or disorders.
-
-For example, a deep learning model may classify a plant as unhealthy due to bronzing during autumn, but may be harder to determine what the disease or disorder is, without additional temporal or environmental context.
+With deep learning models that focus on visual inspection for plant disease detection, it may be more practical to determine if a plant is unhealthy or otherwise, rather than detecting specific diseases or disorders. For example, a deep learning model may classify a plant as unhealthy due to bronzing during autumn, but may be harder to determine what the disease or disorder is, without additional temporal or environmental context.
 
 :::::{figure}
 :label: figure-3
@@ -85,10 +102,10 @@ Abiotic versus biotic induced symptoms.
 
 ![Signs of the P&Ps inflicting disease](images/figure4/fig4.png)
 
-Signs of the P&Ps inflicting disease. (a) fungus growing as conks, (b) flagging, the insect feeding on the branch is highlighted, (c) powdery mildew appearance is composed of a fungus’ hyphae, (d) web-like hyphae of a fungus, (e) rusting and spores of a fungus, (f) japanese beetles feeding ([Beckerman & Creswell, 2022](https://www.extension.purdue.edu/extmedia/BP/BP-164-W.pdf)).
+Signs of the {abbr}`P&Ps (Pathogens and pests)` inflicting disease. (a) fungus growing as conks, (b) flagging, the insect feeding on the branch is highlighted, (c) powdery mildew appearance is composed of a fungus’ hyphae, (d) web-like hyphae of a fungus, (e) rusting and spores of a fungus, (f) japanese beetles feeding ([Beckerman & Creswell, 2022](https://www.extension.purdue.edu/extmedia/BP/BP-164-W.pdf)).
 :::::
 
-Signs are physical evidence of the pathogen or pest, the real cause of the plant disease. Knowing the signs are key information to generating actions or solutions for P&P management.
+Signs are physical evidence of the pathogen or pest, the real cause of the plant disease. Knowing the signs is key information to generating actions or solutions for {abbr}`P&P (Pathogens and pests)` management.
 
 Observing the signs is a sure enough method to indicate that the plant might be unhealthy. However, that will take a more complex deep learning model, to consider another piece of information, for example, the bugs scattered on the branches, or fungus hyphae fully covering the subject leaf or plant. This study’s scope will only incorporate symptoms observed on the leaves and some simpler signs, like fungus mildew.
 
@@ -104,10 +121,26 @@ Observing the signs is a sure enough method to indicate that the plant might be 
 
 # Current limitations
 
+## Known datasets
+
+[Singh et al. (2020)](https://doi.org/10.1145/3371158.3371196) proposed plant disease datasets have little diversity due to the laboratory conditions the image datasets were taken in, particularly datasets like the PlantVillage dataset by [Hughes & Salathé (2015)](https://doi.org/10.48550/arXiv.1511.08060). Their PlantDoc dataset improves upon this limitation but doesn’t account for images with uniform background.
+
 # Methodology
+
+We propose MegaPlant, a combination of both types of datasets of different domains such that we output a model that can generalize regardless of the conditions of the leaf images. Datasets we aim to combine are PlantDoc, PlantVillage, and DiaMOS, a dataset of pear fruits and leaves ([Fenu & Malloci, 2021](https://doi.org/10.3390/agronomy11112107)). However, we only aim to combine the leaf images, not fruits.
 
 ## Splits
 
+We will split the dataset into 3 splits: training, validation, and test with ratios of 0.7, 0.2, 0.1 respectively. We split the dataset into 3 sets to provide a less biased evaluation when training a model.
+
 # Objectives
 
+We hope to determine our proposed method of plant disease detection by applying a CNN or similar deep learning technology to a diverse set of leaf images with varying conditions, including both lab and on field conditions is feasible and deemed practical to be applied in future work of more complex plant disease detection tasks. Conditions such as laboratories with uniform backgrounds, on field conditions with noisy backgrounds and lighting, and also stock images.
+
+As members of society, we hope that we contribute knowledge to the field of deep learning with plant pathology and by extension the farming industry. We hope to contribute to the production of food through farmers utilizing innovations in plant disease detection and related technology, by doing so we move one step closer to solving world hunger.
+
 # Summary
+
+We introduced the basics of plant pathology to give an idea of where our case study might be situated in the research field. We discussed what symptoms are and how our case study approaches the problem of detecting plant diseases by detecting the symptoms visually. We identified traditional and alternative methods of plant disease detection. These methods often required feature engineering steps or expensive requirement
+
+The weaknesses and strengths of innovations in plant disease detection using deep learning were discussed and informed us of how we might tackle the problem of detecting plant diseases using deep learning, particularly on datasets of leaf images with varying conditions such as laboratory, on field conditions, and stock images.
