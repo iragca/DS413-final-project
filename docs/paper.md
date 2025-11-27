@@ -111,11 +111,45 @@ Observing the signs is a sure enough method to indicate that the plant might be 
 
 ## Detection Methods
 
+Plant disease detection can be performed using a range of approaches, from traditional manual observation to advanced computational techniques. Each method varies in accuracy, cost, scalability, and practicality depending on the use case.
+
 ### Manual and Laboratory Methods
+
+Visual inspection is the most common and oldest method, where farmers or plant pathologists examine the visible symptoms on leaves, stems, or fruits such as spots, blight, or discoloration. Although simple and fast, this method is subjective and heavily reliant on human expertise and environmental conditions ([Penn State Extension, 2017](https://www.youtube.com/watch?v=m6GoSy8RjUM)).
+
+In laboratory diagnostics, several scientific tests are employed to accurately identify pathogens:
+
+  • Microscopy – Used to observe fungal spores or bacterial colonies.
+  • Culture tests – Pathogens are isolated and grown in nutrient media for species identification.
+  • Serological tests (e.g., ELISA) – Use antibodies to detect specific proteins associated with viruses  or bacteria.
+  • Molecular techniques (PCR, qPCR, LAMP) – Detect pathogen DNA or RNA, offering high sensitivity and specificity (Ward et al., 2004; Schaad et al., 2003).
+
+While these approaches are precise, they require laboratory equipment, trained personnel, and are not suitable for large-scale or real-time monitoring.
 
 ### Image Processing
 
+Before the advent of deep learning, plant disease detection often relied on handcrafted features derived from image processing.
+
+Key features such as color, texture, and shape were extracted using algorithms like:
+
+  • Gray-Level Co-occurrence Matrix (GLCM) for texture analysis
+  • Local Binary Patterns (LBP) for surface variation
+  • Color histograms in RGB or HSV space for spotting discoloration
+
+These features were then classified using traditional machine learning algorithms such as:
+
+  • Support Vector Machines (SVMs)
+  • k-Nearest Neighbors (k-NN)
+  • Random Forests
+  • Naïve Bayes classifiers
+
+For example, Pydipati et al. (2006) demonstrated that SVM models using color and texture features achieved high accuracy in detecting citrus diseases. However, the performance of these systems is limited by the need for manual feature engineering, and they often fail to generalize well to diverse environmental conditions.
+
 ### Spectral and Sensor-Based Method
+
+More recently, spectral imaging technologies such as hyperspectral, multispectral, and thermal imaging have been applied for early plant disease detection. These methods capture light reflectance across multiple wavelengths, including the visible, near-infrared (NIR), and thermal infrared regions. Diseased plants exhibit distinct reflectance patterns, enabling early detection even before visible symptoms appear (Mahlein, 2016).
+
+Such approaches are commonly integrated into precision agriculture systems, where drones or UAVs collect large-scale field data. Despite their promise, these systems are often expensive, complex to analyze, and require specialized sensors, limiting their accessibility to smallholder farmers.
 
 # Recent Advances
 
