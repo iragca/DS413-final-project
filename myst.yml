@@ -15,14 +15,23 @@ project:
       orcid: 0009-0005-0635-1666
       github: iragca
       email: iragca@pm.me
-      affiliation: "College of Information Technology and Computing, University of Science and Technology of Southern Philippines"
+      affiliation: ustp-cdo
     - name: Ashley Pramio
-      affiliation: "College of Information Technology and Computing, University of Science and Technology of Southern Philippines"
+      affiliation: ustp-cdo
     - name: Monique Antoinette Mendoza
-      affiliation: "College of Information Technology and Computing, University of Science and Technology of Southern Philippines"
+      affiliation: ustp-cdo
     - name: Rod Vincent Dela Vega
       github: rodvincent1
-      affiliation: "College of Information Technology and Computing, University of Science and Technology of Southern Philippines"
+      affiliation: ustp-cdo
+  affiliations:
+    - id: ustp-cdo
+      name: University of Science and Technology of Southern Philippines
+      url: https://ustp.edu.ph
+      department: College of Information Technology and Computing
+      country: Philippines
+      address: Cagayan de Oro City
+      region: Misamis Oriental
+      postal_code: 9000
   copyright: "2025"
   exclude:
     - .venv
