@@ -40,6 +40,7 @@ project:
     - data/**
   toc:
     - file: docs/1.0-paper.md
+    - file: docs/2.0-getting-started.md
   keywords:
     - Plant pathology
     - Image classification
