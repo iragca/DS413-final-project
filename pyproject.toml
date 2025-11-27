@@ -20,6 +20,7 @@ dependencies = [
     "huggingface-hub>=1.1.2",
     "iprogress>=0.4",
     "ipykernel>=7.1.0",
+    "iragca>=0.2.6",
     "jupyter-book>=2.0.2",
     "kagglehub>=0.3.13",
     "loguru>=0.7.3",
