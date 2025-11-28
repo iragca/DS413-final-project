@@ -31,10 +31,11 @@ class DownloadDatasetMenu(BaseMenu):
 
         logger.info("Downloading datasets...")
 
+        pbar = tqdm(total=len(chosen_datasets))
         for dataset_name in chosen_datasets:
-            with tqdm(total=1, desc=dataset_name) as pbar:
-                datasets[dataset_name]()
-                pbar.update(1)
+            pbar.set_description(f"Downloading {dataset_name}")
+            datasets[dataset_name]()
+            pbar.update(1)
 
         logger.success("Downloading datasets complete.")
 
