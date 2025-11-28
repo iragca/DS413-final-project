@@ -78,13 +78,16 @@ class MegaPlantDataset(Dataset):
             A list of ``(image_path, label)`` pairs, where ``image_path`` is a
             ``Path`` object and ``label`` is an integer.
         """
+        healthy_files = self.find_subfiles(self.data_path / "healthy")
+        unhealthy_files = self.find_subfiles(self.data_path / "unhealthy")
+
         data = []
 
-        for class_name in self.STATUS_MAP.keys():
-            class_path = self.data_path / class_name
-            for image_path in class_path.iterdir():
-                if image_path.is_file():
-                    data.append((image_path, self.STATUS_MAP[class_name]))
+        for image_path in healthy_files:
+            data.append((image_path, self.STATUS_MAP["healthy"]))
+
+        for image_path in unhealthy_files:
+            data.append((image_path, self.STATUS_MAP["unhealthy"]))
 
         return data
 
@@ -147,3 +150,88 @@ class MegaPlantDataset(Dataset):
             return self.transforms(image), label
         else:
             return image_path, label
+
+    def find_subfiles(self, dir: Path) -> list[Path]:
+        """
+        Recursively find all files in a directory and its subdirectories.
+
+        Parameters
+        ----------
+        dir : Path
+            The root directory to search for files.
+
+        Returns
+        -------
+        list of Path
+            A list of ``Path`` objects representing all files found within
+            the directory and its subdirectories.
+        """
+        files = []
+
+        if dir.is_dir():
+            for item in dir.iterdir():
+                if item.is_file():
+                    files.append(item)
+                elif item.is_dir():
+                    files.extend(self.find_subfiles(item))
+        else:
+            raise ValueError(f"{dir} is not a valid directory.")
+
+        return files
+
+
+class UnhealthyMegaPlantDataset(MegaPlantDataset):
+    """
+    Dataset class for loading unhealthy plant images with specific symptom labels.
+
+    This dataset expects the following directory structure:
+    unhealthy/
+        blight/
+        greening/
+        malformation/
+        mildew/
+        mite/
+        mold/
+        mosaic/
+        rot/
+        rust/
+        scab/
+        spot/
+    """
+
+    @cached_property
+    def data(self) -> list[tuple[Path, int]]:
+        """
+        List of all dataset samples for unhealthy plants.
+        """
+        data = []
+        for symptom in self.SYMPTOM_MAP.keys():
+            class_path = self.data_path / "unhealthy" / symptom
+            for image_path in class_path.iterdir():
+                if image_path.is_file():
+                    data.append((image_path, self.SYMPTOM_MAP[symptom]))
+        return data
+
+    @property
+    def SYMPTOM_MAP(self) -> dict[str, int]:
+        """
+        Mapping of integer labels to symptom names for unhealthy plants.
+
+        Returns
+        -------
+        dict of int to str
+            Dictionary mapping integer labels to symptom names.
+        """
+        return {
+            "blight": 0,
+            "greening": 1,
+            "malformation": 2,
+            "mildew": 3,
+            "mite": 4,  # not the mites themselves, but mite damage
+            "mold": 5,
+            "mosaic": 6,
+            "rot": 7,
+            "rust": 8,
+            "scab": 9,
+            "spot": 10,
+        }

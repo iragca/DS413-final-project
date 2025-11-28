@@ -5,7 +5,7 @@ import pytest
 import torch
 from torchvision import transforms
 
-from lib.data import MegaPlantDataset
+from lib.data import MegaPlantDataset, UnhealthyMegaPlantDataset
 
 
 @pytest.fixture
@@ -22,6 +22,23 @@ def dataset(tmp_path) -> MegaPlantDataset:
                 f.write(faker.image(size=(100, 100)))
 
     return MegaPlantDataset(data_path=tmp_path)
+
+
+@pytest.fixture
+def unhealthy_dataset(tmp_path) -> UnhealthyMegaPlantDataset:
+    # Setup: create a temporary unhealthy dataset structure
+    class_dir = Path(tmp_path / "unhealthy")
+    class_dir.mkdir(parents=True, exist_ok=True)
+
+    for symptom in UnhealthyMegaPlantDataset(tmp_path).SYMPTOM_MAP.keys():
+        symptom_dir = class_dir / symptom
+        symptom_dir.mkdir(parents=True, exist_ok=True)
+        for i in range(5):  # Create 5 dummy files per symptom
+            file_path = symptom_dir / f"image_{i}.jpg"
+            with open(file_path, "wb") as f:
+                f.write(Faker().image(size=(100, 100)))
+
+    return UnhealthyMegaPlantDataset(data_path=tmp_path)
 
 
 def test_dataset_length(dataset: MegaPlantDataset):
@@ -62,3 +79,14 @@ def test_dataset_transforms(tmp_path):
         assert isinstance(image, torch.Tensor)
         assert image.shape == (3, 64, 64)  # Check transformed image shape
         assert label in {0, 1}  # 0 for healthy, 1 for unhealthy
+
+
+def test_unhealthy_dataset_length(unhealthy_dataset: UnhealthyMegaPlantDataset):
+    assert len(unhealthy_dataset) == 55  # Only unhealthy samples
+
+
+def test_unhealthy_dataset_getitem(unhealthy_dataset: UnhealthyMegaPlantDataset):
+    for i in range(len(unhealthy_dataset)):
+        image_path, label = unhealthy_dataset[i]
+        assert type(image_path) in {Path, PosixPath}
+        assert label in unhealthy_dataset.SYMPTOM_MAP.values()  # Check symptom labels
