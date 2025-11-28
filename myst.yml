@@ -38,6 +38,7 @@ project:
     - README.md
     - materials/**
     - data/**
+    - notebooks/**
   toc:
     - file: docs/1.0-paper.md
     - file: docs/2.0-getting-started.md
@@ -52,5 +53,3 @@ site:
   options:
     folders: true
   template: article-theme
-  exclude:
-    - notebooks/**
