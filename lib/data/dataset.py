@@ -187,7 +187,7 @@ class UnhealthyMegaPlantDataset(MegaPlantDataset):
     This dataset expects the following directory structure:
     unhealthy/
         blight/
-        greening/
+        yellowing/
         malformation/
         mildew/
         mite/
@@ -197,6 +197,7 @@ class UnhealthyMegaPlantDataset(MegaPlantDataset):
         rust/
         scab/
         spot/
+        scorch/
     """
 
     @cached_property
@@ -224,7 +225,7 @@ class UnhealthyMegaPlantDataset(MegaPlantDataset):
         """
         return {
             "blight": 0,
-            "greening": 1,
+            "yellowing": 1,
             "malformation": 2,
             "powdery_mildew": 3,
             "feeding": 4,
