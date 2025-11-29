@@ -226,7 +226,7 @@ class UnhealthyMegaPlantDataset(MegaPlantDataset):
             "blight": 0,
             "greening": 1,
             "malformation": 2,
-            "mildew": 3,
+            "powdery_mildew": 3,
             "feeding": 4,
             "mold": 5,
             "mosaic": 6,
