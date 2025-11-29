@@ -234,4 +234,5 @@ class UnhealthyMegaPlantDataset(MegaPlantDataset):
             "rust": 8,
             "scab": 9,
             "spot": 10,
+            "scorch": 11
         }

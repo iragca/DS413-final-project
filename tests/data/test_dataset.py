@@ -82,7 +82,7 @@ def test_dataset_transforms(tmp_path):
 
 
 def test_unhealthy_dataset_length(unhealthy_dataset: UnhealthyMegaPlantDataset):
-    assert len(unhealthy_dataset) == 55  # Only unhealthy samples
+    assert len(unhealthy_dataset) == 60  # Only unhealthy samples
 
 
 def test_unhealthy_dataset_getitem(unhealthy_dataset: UnhealthyMegaPlantDataset):
