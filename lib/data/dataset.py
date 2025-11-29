@@ -227,7 +227,7 @@ class UnhealthyMegaPlantDataset(MegaPlantDataset):
             "greening": 1,
             "malformation": 2,
             "mildew": 3,
-            "mite": 4,  # not the mites themselves, but mite damage
+            "feeding": 4,
             "mold": 5,
             "mosaic": 6,
             "rot": 7,
