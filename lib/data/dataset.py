@@ -235,5 +235,38 @@ class UnhealthyMegaPlantDataset(MegaPlantDataset):
             "rust": 8,
             "scab": 9,
             "spot": 10,
-            "scorch": 11
+            "scorch": 11,
+        }
+
+
+class CombinedMegaPlantDataset(UnhealthyMegaPlantDataset):
+    """
+    Combined dataset class for loading both unhealthy symptoms and healthy plant images.
+    """
+
+    @cached_property
+    def data(self) -> list[tuple[Path, int]]:
+        """
+        List of all dataset samples for both healthy and unhealthy plants.
+        """
+        data = super().data  # Get unhealthy data from parent class
+        healthy_files = self.find_subfiles(self.data_path / "healthy")
+        data.extend((image_path, self.CLASS_MAP["healthy"]) for image_path in healthy_files)
+        return data
+
+    @property
+    def CLASS_MAP(self) -> dict[str, int]:
+        """
+        Mapping of class names to integer labels for both healthy and unhealthy plants.
+
+        Returns
+        -------
+        dict of str to int
+            Dictionary assigning integer labels to symptom names and "healthy".
+        """
+        max_class = max(self.SYMPTOM_MAP.values()) + 1
+
+        return {
+            **self.SYMPTOM_MAP,
+            "healthy": max_class,
         }

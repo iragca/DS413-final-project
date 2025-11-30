@@ -1,3 +1,3 @@
-from .dataset import MegaPlantDataset, UnhealthyMegaPlantDataset
+from .dataset import CombinedMegaPlantDataset, MegaPlantDataset, UnhealthyMegaPlantDataset
 
-__all__ = ["MegaPlantDataset", "UnhealthyMegaPlantDataset"]
+__all__ = ["MegaPlantDataset", "UnhealthyMegaPlantDataset", "CombinedMegaPlantDataset"]

@@ -5,7 +5,7 @@ import pytest
 import torch
 from torchvision import transforms
 
-from lib.data import MegaPlantDataset, UnhealthyMegaPlantDataset
+from lib.data import CombinedMegaPlantDataset, MegaPlantDataset, UnhealthyMegaPlantDataset
 
 
 @pytest.fixture
@@ -39,6 +39,31 @@ def unhealthy_dataset(tmp_path) -> UnhealthyMegaPlantDataset:
                 f.write(Faker().image(size=(100, 100)))
 
     return UnhealthyMegaPlantDataset(data_path=tmp_path)
+
+
+@pytest.fixture
+def combined_dataset(tmp_path) -> CombinedMegaPlantDataset:
+    # Setup: create a temporary combined dataset structure
+    # Healthy images
+    healthy_dir = Path(tmp_path / "healthy")
+    healthy_dir.mkdir(parents=True, exist_ok=True)
+    for i in range(5):
+        file_path = healthy_dir / f"image_{i}.jpg"
+        with open(file_path, "wb") as f:
+            f.write(Faker().image(size=(100, 100)))
+
+    # Unhealthy images
+    unhealthy_dir = Path(tmp_path / "unhealthy")
+    unhealthy_dir.mkdir(parents=True, exist_ok=True)
+    for symptom in UnhealthyMegaPlantDataset(tmp_path).SYMPTOM_MAP.keys():
+        symptom_dir = unhealthy_dir / symptom
+        symptom_dir.mkdir(parents=True, exist_ok=True)
+        for i in range(5):
+            file_path = symptom_dir / f"image_{i}.jpg"
+            with open(file_path, "wb") as f:
+                f.write(Faker().image(size=(100, 100)))
+
+    return CombinedMegaPlantDataset(data_path=tmp_path)
 
 
 def test_dataset_length(dataset: MegaPlantDataset):
@@ -90,3 +115,14 @@ def test_unhealthy_dataset_getitem(unhealthy_dataset: UnhealthyMegaPlantDataset)
         image_path, label = unhealthy_dataset[i]
         assert type(image_path) in {Path, PosixPath}
         assert label in unhealthy_dataset.SYMPTOM_MAP.values()  # Check symptom labels
+
+
+def test_combined_dataset_length(combined_dataset: CombinedMegaPlantDataset):
+    assert len(combined_dataset) == 65  # 5 healthy + 60 unhealthy
+
+
+def test_combined_dataset_getitem(combined_dataset: CombinedMegaPlantDataset):
+    for i in range(len(combined_dataset)):
+        image_path, label = combined_dataset[i]
+        assert type(image_path) in {Path, PosixPath}
+        assert label in combined_dataset.CLASS_MAP.values()  # Check all class labels
