@@ -42,6 +42,7 @@ project:
   toc:
     - file: docs/1.0-paper.md
     - file: docs/2.0-getting-started.md
+    - file: docs/3.0-eda.ipynb
   keywords:
     - Plant pathology
     - Image classification
