@@ -9,6 +9,8 @@ from torch.nn import Module
 from torch.utils.data import Dataset
 from torchvision.transforms import Compose
 
+from lib import data
+
 
 class ImageDataset(Dataset):
     @beartype
@@ -83,6 +85,34 @@ class ImageDataset(Dataset):
             return self.transforms(image), label
         else:
             return image_path, label
+
+    def find_subfiles(self, dir: Path) -> list[Path]:
+        """
+        Recursively find all files in a directory and its subdirectories.
+
+        Parameters
+        ----------
+        dir : Path
+            The root directory to search for files.
+
+        Returns
+        -------
+        list of Path
+            A list of ``Path`` objects representing all files found within
+            the directory and its subdirectories.
+        """
+        files = []
+
+        if dir.is_dir():
+            for item in dir.iterdir():
+                if item.is_file():
+                    files.append(item)
+                elif item.is_dir():
+                    files.extend(self.find_subfiles(item))
+        else:
+            raise ValueError(f"{dir} is not a valid directory.")
+
+        return files
 
 
 class MegaPlantDataset(ImageDataset):
@@ -181,34 +211,6 @@ class MegaPlantDataset(ImageDataset):
             "healthy": 0,
             "unhealthy": 1,
         }
-
-    def find_subfiles(self, dir: Path) -> list[Path]:
-        """
-        Recursively find all files in a directory and its subdirectories.
-
-        Parameters
-        ----------
-        dir : Path
-            The root directory to search for files.
-
-        Returns
-        -------
-        list of Path
-            A list of ``Path`` objects representing all files found within
-            the directory and its subdirectories.
-        """
-        files = []
-
-        if dir.is_dir():
-            for item in dir.iterdir():
-                if item.is_file():
-                    files.append(item)
-                elif item.is_dir():
-                    files.extend(self.find_subfiles(item))
-        else:
-            raise ValueError(f"{dir} is not a valid directory.")
-
-        return files
 
 
 class UnhealthyMegaPlantDataset(MegaPlantDataset):
