@@ -51,7 +51,8 @@ class MoverMenu(BaseMenu):
             chosen_folder = source_folder / chosen_folder
 
             move_to_folder = questionary.select(
-                "Choose a folder to move to:", choices=[folder.name for folder in subclass_folders] + [healthy_folder.name]
+                "Choose a folder to move to:",
+                choices=[folder.name for folder in subclass_folders] + [healthy_folder.name],
             ).ask()
 
             if move_to_folder is None:
