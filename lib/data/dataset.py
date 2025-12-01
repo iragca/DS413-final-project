@@ -10,7 +10,82 @@ from torch.utils.data import Dataset
 from torchvision.transforms import Compose
 
 
-class MegaPlantDataset(Dataset):
+class ImageDataset(Dataset):
+    @beartype
+    def __init__(
+        self,
+        data_path: Union[str, Path, PosixPath],
+        transforms: Optional[Union[Compose, Module]] = None,
+    ):
+        if isinstance(data_path, str):
+            data_path = Path(data_path)
+
+        self.data_path = data_path
+        self.transforms = transforms
+
+    @cached_property
+    def data(self) -> list[tuple[Path, int]]:
+        """
+        List of all dataset samples.
+
+        This property is computed once and cached on first access. It should be
+        implemented by subclasses to return a list of ``(image_path, label)``
+        pairs.
+
+        Returns
+        -------
+        list of tuple
+            A list of ``(image_path, label)`` pairs, where ``image_path`` is a
+            ``Path`` object and ``label`` is an integer.
+        """
+        return []
+
+    def __len__(self):
+        """
+        Return the number of samples in the dataset.
+
+        Returns
+        -------
+        int
+            Total number of images across all classes.
+        """
+        return len(self.data)
+
+    def __getitem__(
+        self, idx
+    ) -> Union[tuple[Tensor, int], tuple[Image.Image, int], tuple[Union[Path, PosixPath], int]]:
+        """
+        Retrieve a single dataset sample.
+
+        Loads an RGB image from disk and applies the optional transformation.
+        If no transformations are provided, the method returns the image path
+        instead of the loaded image. This allows lazy loading or custom
+        processing pipelines.
+
+        Parameters
+        ----------
+        idx : int
+            Index of the sample to retrieve.
+
+        Returns
+        -------
+        tuple[Union[Image.Image, Tensor, Path, PosixPath], int]
+            If ``transforms`` is provided:
+                ``(image, label)`` where ``image`` is a PIL ``Image`` or the
+                output of the transform, and ``label`` is an integer.
+
+            If ``transforms`` is None:
+                ``(image_path, label)`` where ``image_path`` is a ``Path`` object.
+        """
+        image_path, label = self.data[idx]
+        image = Image.open(image_path).convert("RGB")
+        if self.transforms:
+            return self.transforms(image), label
+        else:
+            return image_path, label
+
+
+class MegaPlantDataset(ImageDataset):
     """
     Dataset class for loading healthy and unhealthy plant images.
 
@@ -106,50 +181,6 @@ class MegaPlantDataset(Dataset):
             "healthy": 0,
             "unhealthy": 1,
         }
-
-    def __len__(self):
-        """
-        Return the number of samples in the dataset.
-
-        Returns
-        -------
-        int
-            Total number of images across all classes.
-        """
-        return len(self.data)
-
-    def __getitem__(
-        self, idx
-    ) -> Union[tuple[Tensor, int], tuple[Image.Image, int], tuple[Union[Path, PosixPath], int]]:
-        """
-        Retrieve a single dataset sample.
-
-        Loads an RGB image from disk and applies the optional transformation.
-        If no transformations are provided, the method returns the image path
-        instead of the loaded image. This allows lazy loading or custom
-        processing pipelines.
-
-        Parameters
-        ----------
-        idx : int
-            Index of the sample to retrieve.
-
-        Returns
-        -------
-        tuple[Union[Image.Image, Tensor, Path, PosixPath], int]
-            If ``transforms`` is provided:
-                ``(image, label)`` where ``image`` is a PIL ``Image`` or the
-                output of the transform, and ``label`` is an integer.
-
-            If ``transforms`` is None:
-                ``(image_path, label)`` where ``image_path`` is a ``Path`` object.
-        """
-        image_path, label = self.data[idx]
-        image = Image.open(image_path).convert("RGB")
-        if self.transforms:
-            return self.transforms(image), label
-        else:
-            return image_path, label
 
     def find_subfiles(self, dir: Path) -> list[Path]:
         """
