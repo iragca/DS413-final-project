@@ -39,16 +39,17 @@ jobs:
         run: npm install -g jupyter-book
       - name: Build HTML Assets
         run: jupyter-book build --html
-      - name: Install TeX Live
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y texlive-full
       - name: Build PDF
-        run: jupyter-book build --pdf
+        uses: xu-cheng/texlive-action@v3
+        with:
+          run: |
+            jupyter-book build --pdf
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: "./_build/html"
+          path: |
+            "./_build/html"
+            "./_build/exports"
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
