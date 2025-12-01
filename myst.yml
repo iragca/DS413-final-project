@@ -53,4 +53,10 @@ project:
 site:
   options:
     folders: true
+    favicon: docs/images/favicon.ico
+    logo: docs/images/logo.png
+  actions:
+    - title: Download PDF
+      url: docs/megaplant.pdf
+      static: true
   template: article-theme
