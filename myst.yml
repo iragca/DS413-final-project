@@ -2,8 +2,8 @@ version: 1
 project:
   title: MegaPlant
   subtitle: A Dataset and Modular Decision Pipeline for Autonomous In-Field Plant Disease Detection
-  subject: Case Study
-  venue: DS413 Deep Learning
+  subject: DS413 Deep Learning
+  venue: University of Science and Technology of Southern Philippines
   date: "2025-12-12"
   github: https://github.com/iragca/DS413-final-project
   open_access: true
