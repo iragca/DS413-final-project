@@ -2,7 +2,7 @@ version: 1
 project:
   title: MegaPlant
   subtitle: A Dataset and Modular Decision Pipeline for Autonomous In-Field Plant Disease Detection
-  subject: DS413 Deep Learning
+  subject: deep learning
   venue: University of Science and Technology of Southern Philippines
   date: "2025-12-12"
   github: https://github.com/iragca/DS413-final-project
@@ -50,11 +50,16 @@ project:
     - Convolutional neural networks
   banner: docs/images/banner.avif
   thumbnail: docs/images/banner.avif
+  exports:
+    - format: pdf
+      template: lapreprint-typst
+      articles: docs/1.0-paper.md
 site:
   options:
     folders: true
     favicon: docs/images/favicon.ico
     logo: docs/images/logo.png
+    logo_text: MegaPlant
   actions:
     - title: Download PDF
       url: docs/megaplant.pdf
