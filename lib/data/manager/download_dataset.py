@@ -16,7 +16,7 @@ class DownloadDatasetMenu(BaseMenu):
                 flood_control_dataset,
                 plant_doc_dataset,
                 plantvillage_dataset,
-                daimos_dataset,
+                diamos_dataset,
                 megaplant_dataset,
             ]
         }
@@ -81,9 +81,9 @@ def plantvillage_dataset():
     return path
 
 
-def daimos_dataset():
+def diamos_dataset():
     """
-    Download the Daimos dataset from Kaggle.
+    Download the DiaMOS dataset from Kaggle.
     Dataset source: https://huggingface.co/datasets/chrisandrei/diamos
     """
     storage = HuggingFace()
@@ -91,7 +91,7 @@ def daimos_dataset():
         repo_id="chrisandrei/diamos",
         filename="leaves.zip",
     )
-    logger.info(f"Daimos dataset saved to: {data_path}")
+    logger.info(f"DiaMOS dataset saved to: {data_path}")
     return data_path
 
 
