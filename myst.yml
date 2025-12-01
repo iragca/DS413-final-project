@@ -1,7 +1,7 @@
 version: 1
 project:
   title: MegaPlant
-  subtitle: Applying Deep Learning in Plant Disease Detection under multiple conditions
+  subtitle: A Dataset and Modular Decision Pipeline for Autonomous In-Field Plant Disease Detection
   subject: Case Study
   venue: DS413 Deep Learning
   date: "2025-12-12"
