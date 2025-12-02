@@ -52,7 +52,7 @@ project:
   thumbnail: docs/images/banner.avif
   exports:
     - format: pdf
-      template: lapreprint
+      template: arxiv_two_column
       articles: docs/1.0-paper.md
 site:
   options:
