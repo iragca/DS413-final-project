@@ -318,6 +318,12 @@ class PlantDocSymptomIdentification(UnhealthyMegaPlantDataset):
     """
 
 
+class CombinedPlantDocDataset(CombinedMegaPlantDataset):
+    """
+    Dataset class for loading both healthy and unhealthy plant images from the PlantDoc dataset.
+    """
+
+
 class PlantVillageDiseaseDetection(MegaPlantDataset):
     """
     Dataset class for loading plant images from the PlantVillage dataset.
