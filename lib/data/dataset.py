@@ -113,6 +113,31 @@ class ImageDataset(Dataset, ABC):
 
         return files
 
+    @property
+    def SYMPTOM_MAP(self) -> dict[str, int]:
+        """
+        Mapping of integer labels to symptom names for unhealthy plants.
+
+        Returns
+        -------
+        dict of int to str
+            Dictionary mapping integer labels to symptom names.
+        """
+        return {
+            "blight": 0,
+            "yellowing": 1,
+            "malformation": 2,
+            "powdery_mildew": 3,
+            "feeding": 4,
+            "mold": 5,
+            "mosaic": 6,
+            "rot": 7,
+            "rust": 8,
+            "scab": 9,
+            "spot": 10,
+            "scorch": 11,
+        }
+
 
 class MegaPlantDataset(ImageDataset):
     """
@@ -245,31 +270,6 @@ class UnhealthyMegaPlantDataset(MegaPlantDataset):
                     data.append((image_path, self.SYMPTOM_MAP[symptom]))
         return data
 
-    @property
-    def SYMPTOM_MAP(self) -> dict[str, int]:
-        """
-        Mapping of integer labels to symptom names for unhealthy plants.
-
-        Returns
-        -------
-        dict of int to str
-            Dictionary mapping integer labels to symptom names.
-        """
-        return {
-            "blight": 0,
-            "yellowing": 1,
-            "malformation": 2,
-            "powdery_mildew": 3,
-            "feeding": 4,
-            "mold": 5,
-            "mosaic": 6,
-            "rot": 7,
-            "rust": 8,
-            "scab": 9,
-            "spot": 10,
-            "scorch": 11,
-        }
-
 
 class CombinedMegaPlantDataset(UnhealthyMegaPlantDataset):
     """
@@ -345,31 +345,6 @@ class PlantDocDiseaseDetection(ImageDataset):
                 return 1
         return 0
 
-    @property
-    def SYMPTOM_MAP(self) -> dict[str, int]:
-        """
-        Mapping of integer labels to symptom names for unhealthy plants.
-
-        Returns
-        -------
-        dict of int to str
-            Dictionary mapping integer labels to symptom names.
-        """
-        return {
-            "blight": 0,
-            "yellowing": 1,
-            "malformation": 2,
-            "powdery_mildew": 3,
-            "feeding": 4,
-            "mold": 5,
-            "mosaic": 6,
-            "rot": 7,
-            "rust": 8,
-            "scab": 9,
-            "spot": 10,
-            "scorch": 11,
-        }
-
 
 class PlantVillageDiseaseDetection(ImageDataset):
     """
@@ -411,28 +386,3 @@ class PlantVillageDiseaseDetection(ImageDataset):
             if symptom in filename.parent.name.lower():
                 return 1
         return 0
-
-    @property
-    def SYMPTOM_MAP(self) -> dict[str, int]:
-        """
-        Mapping of integer labels to symptom names for unhealthy plants.
-
-        Returns
-        -------
-        dict of int to str
-            Dictionary mapping integer labels to symptom names.
-        """
-        return {
-            "blight": 0,
-            "yellowing": 1,
-            "malformation": 2,
-            "powdery_mildew": 3,
-            "feeding": 4,
-            "mold": 5,
-            "mosaic": 6,
-            "rot": 7,
-            "rust": 8,
-            "scab": 9,
-            "spot": 10,
-            "scorch": 11,
-        }
