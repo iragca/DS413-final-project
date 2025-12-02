@@ -4,6 +4,7 @@ from .dataset import (
     PlantDocDiseaseDetection,
     PlantDocSymptomIdentification,
     PlantVillageDiseaseDetection,
+    PlantVillageSymptomIdentification,
     UnhealthyMegaPlantDataset,
 )
 
@@ -14,4 +15,5 @@ __all__ = [
     "PlantDocDiseaseDetection",
     "PlantDocSymptomIdentification",
     "PlantVillageDiseaseDetection",
+    "PlantVillageSymptomIdentification",
 ]
