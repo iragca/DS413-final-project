@@ -45,12 +45,14 @@ jobs:
           sudo apt-get install -y texlive-full
       - name: Build PDF
         run: jupyter-book build --pdf
-      - name: Upload artifact
+      - name: Upload HTML artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: |
-            "./_build/html"
-            "./_build/exports"
+          path: "./_build/html"
+      - name: Upload PDF artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: "./_build/exports"
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
