@@ -36,17 +36,15 @@ jobs:
         with:
           node-version: 18.x
 
-      # Install MyST and PDF dependencies
-      - name: Install MyST Markdown
-        run: npm install -g mystmd
-      - name: Setup Typst
-        uses: typst-community/setup-typst@v4
+      # Install jupyter-book
+      - name: Install Jupyter Book (via myst)
+        run: npm install -g jupyter-book
 
       # Build PDF and then HTML
       - name: Build PDF Assets
-        run: myst build --pdf
+        run: jupyter-book build --pdf
       - name: Build HTML Assets
-        run: myst build --html
+        run: jupyter-book build --html
 
       # Upload to GitHub Pages
       - name: Upload artifact
