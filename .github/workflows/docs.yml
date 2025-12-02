@@ -48,10 +48,12 @@ jobs:
       - name: Upload HTML artifact
         uses: actions/upload-pages-artifact@v3
         with:
+          name: html-artifact
           path: "./_build/html"
       - name: Upload PDF artifact
         uses: actions/upload-pages-artifact@v3
         with:
+          name: pdf-artifact
           path: "./_build/exports"
       - name: Deploy to GitHub Pages
         id: deployment
