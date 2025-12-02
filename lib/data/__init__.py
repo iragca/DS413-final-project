@@ -1,12 +1,12 @@
 from .dataset import (
     CombinedMegaPlantDataset,
+    CombinedPlantDocDataset,
     MegaPlantDataset,
     PlantDocDiseaseDetection,
     PlantDocSymptomIdentification,
     PlantVillageDiseaseDetection,
     PlantVillageSymptomIdentification,
     UnhealthyMegaPlantDataset,
-    CombinedPlantDocDataset,
 )
 
 __all__ = [
