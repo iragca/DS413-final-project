@@ -65,3 +65,4 @@ site:
       url: docs/megaplant.pdf
       static: true
   template: article-theme
+  outline_maxdepth: 2
