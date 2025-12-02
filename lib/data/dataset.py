@@ -332,16 +332,83 @@ class PlantDocDiseaseDetection(ImageDataset):
             if file_path.suffix.lower() not in {".jpg", ".jpeg", ".png"}:
                 continue
 
-            label = self.resolve_class(file_path.name)
+            label = self.resolve_class(file_path)
             data.append((file_path, label))
         return data
 
-    def resolve_class(self, filename: str) -> int:
+    def resolve_class(self, filename: Path) -> int:
         """
         Determine the class label based on the filename.
         """
         for symptom in self.SYMPTOM_MAP.keys():
-            if symptom in filename.lower():
+            if symptom in filename.parent.name.lower():
+                return 1
+        return 0
+
+    @property
+    def SYMPTOM_MAP(self) -> dict[str, int]:
+        """
+        Mapping of integer labels to symptom names for unhealthy plants.
+
+        Returns
+        -------
+        dict of int to str
+            Dictionary mapping integer labels to symptom names.
+        """
+        return {
+            "blight": 0,
+            "yellowing": 1,
+            "malformation": 2,
+            "powdery_mildew": 3,
+            "feeding": 4,
+            "mold": 5,
+            "mosaic": 6,
+            "rot": 7,
+            "rust": 8,
+            "scab": 9,
+            "spot": 10,
+            "scorch": 11,
+        }
+
+
+class PlantVillageDiseaseDetection(ImageDataset):
+    """
+    Dataset class for loading plant images from the PlantVillage dataset.
+    """
+
+    @cached_property
+    def data(self) -> list[tuple[Path, int]]:
+        """
+        List of all dataset samples.
+
+        This property is computed once and cached on first access. It iterates
+        over all class subdirectories and collects image paths paired with their
+        corresponding integer labels.
+
+        Returns
+        -------
+        list of tuple
+            A list of ``(image_path, label)`` pairs, where ``image_path`` is a
+            ``Path`` object and ``label`` is an integer.
+        """
+
+        all_files = self.find_subfiles(self.data_path / "color")
+
+        data = []
+        for file_path in all_files:
+            if file_path.suffix.lower() not in {".jpg", ".jpeg", ".png"}:
+                continue
+
+            label = self.resolve_class(file_path)
+            data.append((file_path, label))
+        return data
+
+    def resolve_class(self, filename: Path) -> int:
+        """
+        Determine the class label based on the filename.
+        """
+        for symptom in self.SYMPTOM_MAP.keys():
+            if symptom in filename.parent.name.lower():
                 return 1
         return 0
 
