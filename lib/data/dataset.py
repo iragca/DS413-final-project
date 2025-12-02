@@ -265,6 +265,8 @@ class UnhealthyMegaPlantDataset(MegaPlantDataset):
         data = []
         for symptom in self.SYMPTOM_MAP.keys():
             class_path = self.data_path / "unhealthy" / symptom
+            if not class_path.exists():
+                continue
             for image_path in class_path.iterdir():
                 if image_path.is_file():
                     data.append((image_path, self.SYMPTOM_MAP[symptom]))
@@ -304,46 +306,16 @@ class CombinedMegaPlantDataset(UnhealthyMegaPlantDataset):
         }
 
 
-class PlantDocDiseaseDetection(ImageDataset):
+class PlantDocDiseaseDetection(MegaPlantDataset):
     """
     Dataset class for loading plant images from the PlantDoc dataset.
     """
 
-    @cached_property
-    def data(self) -> list[tuple[Path, int]]:
-        """
-        List of all dataset samples.
 
-        This property is computed once and cached on first access. It iterates
-        over all class subdirectories and collects image paths paired with their
-        corresponding integer labels.
-
-        Returns
-        -------
-        list of tuple
-            A list of ``(image_path, label)`` pairs, where ``image_path`` is a
-            ``Path`` object and ``label`` is an integer.
-        """
-
-        all_files = self.find_subfiles(self.data_path)
-
-        data = []
-        for file_path in all_files:
-            if file_path.suffix.lower() not in {".jpg", ".jpeg", ".png"}:
-                continue
-
-            label = self.resolve_class(file_path)
-            data.append((file_path, label))
-        return data
-
-    def resolve_class(self, filename: Path) -> int:
-        """
-        Determine the class label based on the filename.
-        """
-        for symptom in self.SYMPTOM_MAP.keys():
-            if symptom in filename.parent.name.lower():
-                return 1
-        return 0
+class PlantDocSymptomIdentification(UnhealthyMegaPlantDataset):
+    """
+    Dataset class for loading plant images from the PlantDoc dataset for symptom identification.
+    """
 
 
 class PlantVillageDiseaseDetection(ImageDataset):

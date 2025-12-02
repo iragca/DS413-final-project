@@ -110,6 +110,30 @@ def test_unhealthy_dataset_length(unhealthy_dataset: UnhealthyMegaPlantDataset):
     assert len(unhealthy_dataset) == 60  # Only unhealthy samples
 
 
+def test_unhealthy_dataset_skip_symptom(tmp_path):
+    class_dir = Path(tmp_path / "unhealthy")
+    class_dir.mkdir(parents=True, exist_ok=True)
+
+    symptoms = UnhealthyMegaPlantDataset(tmp_path).SYMPTOM_MAP.keys()
+
+    # Remove non-existing symptom folder
+    first_symptom, *symptoms = symptoms
+
+    for symptom in symptoms:
+        symptom_dir = class_dir / symptom
+        symptom_dir.mkdir(parents=True, exist_ok=True)
+        for i in range(5):  # Create 5 dummy files per symptom
+            file_path = symptom_dir / f"image_{i}.jpg"
+            with open(file_path, "wb") as f:
+                f.write(Faker().image(size=(100, 100)))
+
+    dataset = UnhealthyMegaPlantDataset(tmp_path)
+
+    for image, _ in dataset:
+        if isinstance(image, Path):
+            assert first_symptom not in str(image)
+
+
 def test_unhealthy_dataset_getitem(unhealthy_dataset: UnhealthyMegaPlantDataset):
     for i in range(len(unhealthy_dataset)):
         image_path, label = unhealthy_dataset[i]
