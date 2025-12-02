@@ -60,9 +60,9 @@ site:
     favicon: docs/images/favicon.ico
     logo: docs/images/logo.png
     logo_text: MegaPlant
+    outline_maxdepth: 2
   actions:
     - title: Download PDF
       url: docs/megaplant.pdf
       static: true
   template: article-theme
-  outline_maxdepth: 2
