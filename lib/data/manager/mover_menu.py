@@ -30,8 +30,12 @@ class MoverMenu(BaseMenu):
 
         logger.debug(f"Source folder selected: {source_folder}")
 
-        unhealthy_folder = Directories.INTERIM_DATA_DIR.value / "leaves" / "unhealthy"
-        healthy_folder = Directories.INTERIM_DATA_DIR.value / "leaves" / "healthy"
+        if questionary.confirm("Custom destination?", default=False).ask():
+            unhealthy_folder = Path(questionary.path("Enter unhealthy folder:").ask())
+            healthy_folder = Path(questionary.path("Enter healthy folder:").ask())
+        else:
+            unhealthy_folder = Directories.INTERIM_DATA_DIR.value / "leaves" / "unhealthy"
+            healthy_folder = Directories.INTERIM_DATA_DIR.value / "leaves" / "healthy"
 
         if not unhealthy_folder.exists():
             questionary.print("Destination folder does not exist.")
