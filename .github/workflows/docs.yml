@@ -40,6 +40,12 @@ jobs:
       - name: Install Jupyter Book (via myst)
         run: npm install -g jupyter-book
 
+      # Install TeX Live for PDF generation
+      - name: Install TeX Live
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y texlive-full
+
       # Build PDF and then HTML
       - name: Build PDF Assets
         run: jupyter-book build --pdf
