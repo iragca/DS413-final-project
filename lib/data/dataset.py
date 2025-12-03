@@ -24,6 +24,7 @@ class ImageDataset(Dataset, ABC):
         self.data_path = data_path
         self.transforms = transforms
 
+    @cached_property
     @abstractmethod
     def data(self) -> list[tuple[Path, int]]:
         """
