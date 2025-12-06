@@ -1,6 +1,10 @@
 from .dataset import (
+    CombinedDiamosDataset,
     CombinedMegaPlantDataset,
     CombinedPlantDocDataset,
+    CombinedPlantVillageDataset,
+    DiamosDiseaseDetection,
+    DiamosSymptomIdentification,
     MegaPlantDataset,
     PlantDocDiseaseDetection,
     PlantDocSymptomIdentification,
@@ -18,4 +22,8 @@ __all__ = [
     "PlantVillageDiseaseDetection",
     "PlantVillageSymptomIdentification",
     "CombinedPlantDocDataset",
+    "CombinedPlantVillageDataset",
+    "DiamosDiseaseDetection",
+    "DiamosSymptomIdentification",
+    "CombinedDiamosDataset",
 ]

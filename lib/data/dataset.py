@@ -335,3 +335,26 @@ class PlantVillageSymptomIdentification(UnhealthyMegaPlantDataset):
     """
     Dataset class for loading plant images from the PlantVillage dataset for symptom identification.
     """
+
+class CombinedPlantVillageDataset(CombinedMegaPlantDataset):
+    """
+    Dataset class for loading both healthy and unhealthy plant images from the PlantVillage dataset.
+    """
+
+
+class DiamosDiseaseDetection(MegaPlantDataset):
+    """
+    Dataset class for loading plant images from the Diamos dataset.
+    """
+
+
+class DiamosSymptomIdentification(UnhealthyMegaPlantDataset):
+    """
+    Dataset class for loading plant images from the Diamos dataset for symptom identification.
+    """
+
+
+class CombinedDiamosDataset(CombinedMegaPlantDataset):
+    """
+    Dataset class for loading both healthy and unhealthy plant images from the Diamos dataset.
+    """
