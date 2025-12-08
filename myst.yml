@@ -1,7 +1,7 @@
 version: 1
 project:
   title: MegaPlant
-  subtitle: A Dataset and Modular Decision Pipeline for Autonomous In-Field Plant Disease Detection
+  subtitle: An integrated image classification dataset of laboratory and field images
   subject: deep learning
   venue: University of Science and Technology of Southern Philippines
   date: "2025-12-12"
