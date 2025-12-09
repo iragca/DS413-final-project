@@ -43,6 +43,7 @@ project:
     - file: docs/1.0-paper.md
     - file: docs/2.0-getting-started.md
     - file: docs/3.0-eda.ipynb
+    - file: docs/4.0-training.ipynb
   keywords:
     - Plant pathology
     - Image classification
