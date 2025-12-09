@@ -44,6 +44,7 @@ project:
     - file: docs/2.0-getting-started.md
     - file: docs/3.0-eda.ipynb
     - file: docs/4.0-training.ipynb
+    - file: docs/5.0-dataset-performance.ipynb
   keywords:
     - Plant pathology
     - Image classification
