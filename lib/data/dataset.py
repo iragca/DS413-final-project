@@ -336,6 +336,7 @@ class PlantVillageSymptomIdentification(UnhealthyMegaPlantDataset):
     Dataset class for loading plant images from the PlantVillage dataset for symptom identification.
     """
 
+
 class CombinedPlantVillageDataset(CombinedMegaPlantDataset):
     """
     Dataset class for loading both healthy and unhealthy plant images from the PlantVillage dataset.
