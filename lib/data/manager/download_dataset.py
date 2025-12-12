@@ -1,4 +1,5 @@
-import kagglehub
+import zipfile
+
 import questionary
 from tqdm import tqdm
 
@@ -61,24 +62,41 @@ def flood_control_dataset():
 def plant_doc_dataset():
     """
     Download the PlantDoc dataset from Hugging Face.
-    Dataset source: https://www.kaggle.com/datasets/nirmalsankalana/plantdoc-dataset
+    Dataset source: https://huggingface.co/datasets/chrisandrei/MegaPlant/tree/main
     """
-    # Download latest version
-    path = kagglehub.dataset_download("nirmalsankalana/plantdoc-dataset")
+    storage = HuggingFace()
+    data_path = storage.load(
+        repo_id="chrisandrei/MegaPlant",
+        filename="plantdoc.zip",
+    )
 
-    print("Path to dataset files:", path)
-    return path
+    save_path = data_path.parent
+    with zipfile.ZipFile(data_path, "r") as zip_ref:
+        zip_ref.extractall(save_path)
+
+    data_path.unlink()  # Remove the zip file after extraction
+    logger.info(f"PlantDoc dataset saved to: {save_path}")
+    return save_path
 
 
 def plantvillage_dataset():
     """
     Download the PlantVillage dataset from Kaggle.
-    Dataset source: https://www.kaggle.com/datasets/abdallahalidev/plantvillage-dataset
+    Dataset source: https://huggingface.co/datasets/chrisandrei/MegaPlant/tree/main
     """
-    # Download latest version
-    path = kagglehub.dataset_download("abdallahalidev/plantvillage-dataset")
-    print("Path to dataset files:", path)
-    return path
+    storage = HuggingFace()
+    data_path = storage.load(
+        repo_id="chrisandrei/MegaPlant",
+        filename="plantvillage.zip",
+    )
+
+    save_path = data_path.parent
+    with zipfile.ZipFile(data_path, "r") as zip_ref:
+        zip_ref.extractall(save_path)
+
+    data_path.unlink()  # Remove the zip file after extraction
+    logger.info(f"PlantVillage dataset saved to: {save_path}")
+    return save_path
 
 
 def diamos_dataset():
@@ -89,10 +107,16 @@ def diamos_dataset():
     storage = HuggingFace()
     data_path = storage.load(
         repo_id="chrisandrei/diamos",
-        filename="leaves.zip",
+        filename="diamos.zip",
     )
-    logger.info(f"DiaMOS dataset saved to: {data_path}")
-    return data_path
+
+    save_path = data_path.parent
+    with zipfile.ZipFile(data_path, "r") as zip_ref:
+        zip_ref.extractall(save_path)
+
+    data_path.unlink()  # Remove the zip file after extraction
+    logger.info(f"DiaMOS dataset saved to: {save_path}")
+    return save_path
 
 
 def megaplant_dataset():
@@ -106,5 +130,11 @@ def megaplant_dataset():
         repo_id="chrisandrei/MegaPlant",
         filename="leaves.zip",
     )
-    logger.info(f"Processed dataset saved to: {data_path}")
-    return data_path
+
+    save_path = data_path.parent
+    with zipfile.ZipFile(data_path, "r") as zip_ref:
+        zip_ref.extractall(save_path)
+
+    data_path.unlink()  # Remove the zip file after extraction
+    logger.info(f"Processed dataset saved to: {save_path}")
+    return save_path
