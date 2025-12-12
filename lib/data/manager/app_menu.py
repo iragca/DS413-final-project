@@ -1,4 +1,5 @@
 import questionary
+from questionary import Choice
 
 from .base_menu import BaseMenu
 from .deduplicate_files import DeduplicateFilesMenu
@@ -13,10 +14,22 @@ class AppMenu(BaseMenu):
             choice = questionary.select(
                 f"{self.breadcrumbs} >",
                 choices=[
-                    "Download Datasets",
-                    "Deduplicate Dataset",
-                    "Split Dataset",
-                    "Move Files",
+                    Choice(
+                        "Download Datasets",
+                        description="Download datasets from HuggingFace and Kaggle",
+                    ),
+                    Choice(
+                        "Deduplicate Dataset",
+                        description="Remove duplicate files from a specified directory",
+                    ),
+                    Choice(
+                        "Split Dataset",
+                        description="Split dataset into training, validation, and test sets",
+                    ),
+                    Choice(
+                        "Move Files",
+                        description="Move images/files between directories, was used for integrating datasets into MegaPlant",
+                    ),
                 ],
             ).ask()
 
