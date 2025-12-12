@@ -1,3 +1,7 @@
+<p align="center">
+<img src="docs/images/banner.avif"/>
+</p>
+
 <h1 align="center">MegaPlant</h1>
 
 <p align="center">
@@ -6,8 +10,6 @@
 <a href="https://huggingface.co/datasets/chrisandrei/MegaPlant">
 <img src="https://img.shields.io/badge/HuggingFace-Dataset-blue?logo=huggingface"/>
 </p>
-
----
 
 A consolidated leaf-image dataset designed to support plant disease classification models that generalize across diverse environmental conditions, from controlled laboratory settings to highly variable in-field scenarios. MegaPlant integrates multiple publicly available datasets and standardizes them into a unified taxonomy of healthy and diseased leaf categories, enabling robust training across modalities.
 
