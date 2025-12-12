@@ -11,5 +11,5 @@ authors:
     given-names: "Monique Antoinette"
   - family-names: "Dela Vega"
     given-names: "Rod Vincent"
-title: "MegaPlant: A Dataset and Modular Decision Pipeline for Autonomous In-Field Plant Disease Detection"
+title: "MegaPlant: An integrated image classification dataset of laboratory and field images"
 url: "https://github.com/iragca/DS413-final-project"
