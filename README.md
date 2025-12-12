@@ -1,8 +1,15 @@
-# MegaPlant
+<h1 align="center">MegaPlant</h1>
 
-A consolidated leaf-image dataset designed to support plant disease classification models that generalize across diverse environmental conditions, from controlled laboratory settings to highly variable in-field scenarios. MegaPlant integrates multiple publicly available datasets and standardizes them into a unified [taxonomy](https://en.wikipedia.org/wiki/Taxonomy) of healthy and diseased leaf categories, enabling robust training across modalities.
+<p align="center">
+<a href="https://iragca.github.io/DS413-final-project/">
+<img src="https://img.shields.io/badge/Research-Paper-darkgreen?logo=paperswithcode"/>
+<a href="https://huggingface.co/datasets/chrisandrei/MegaPlant">
+<img src="https://img.shields.io/badge/HuggingFace-Dataset-blue?logo=huggingface"/>
+</p>
 
-[Paper](https://iragca.github.io/DS413-final-project/), [HuggingFace](https://huggingface.co/datasets/chrisandrei/MegaPlant)
+---
+
+A consolidated leaf-image dataset designed to support plant disease classification models that generalize across diverse environmental conditions, from controlled laboratory settings to highly variable in-field scenarios. MegaPlant integrates multiple publicly available datasets and standardizes them into a unified taxonomy of healthy and diseased leaf categories, enabling robust training across modalities.
 
 ## Datasets integrated
 
