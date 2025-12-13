@@ -80,8 +80,8 @@ class ImageDataset(Dataset, ABC):
                 ``(image_path, label)`` where ``image_path`` is a ``Path`` object.
         """
         image_path, label = self.data[idx]
-        image = Image.open(image_path).convert("RGB")
         if self.transforms:
+            image = Image.open(image_path).convert("RGB")
             return self.transforms(image), label
         else:
             return image_path, label
@@ -146,15 +146,21 @@ class MegaPlantDataset(ImageDataset):
 
     This dataset expects the following directory structure:
 
-        data_path/
+        leaves/
             healthy/
-                image_1.jpg
-                image_2.jpg
-                ...
             unhealthy/
-                image_3.jpg
-                image_4.jpg
-                ...
+                blight/
+                yellowing/
+                malformation/
+                mildew/
+                mite/
+                mold/
+                mosaic/
+                rot/
+                rust/
+                scab/
+                spot/
+                scorch/
 
     The dataset assigns integer labels based on ``STATUS_MAP`` and optionally
     applies a set of transformations to each image.
